@@ -82,7 +82,8 @@ class ArticlesController extends Controller
     {
       $article = Article::find($id);
       if ($article->user_id != Auth::user()->id)
-        $this->middleware('is.admin');
+        if (!Auth::user()->isAdmin)
+          return "error";
       return view("articles.edit", ['article' => $article]);
     }
 
@@ -97,7 +98,8 @@ class ArticlesController extends Controller
     {
         $article = Article::find($id);
         if ($article->user_id != Auth::user()->id)
-          $this->middleware('is.admin');
+            if (!Auth::user()->isAdmin)
+              return "error";
       $validator = Validator::make($request->all(), [
          'title' => 'required',
          'content' => 'required',
@@ -126,7 +128,8 @@ class ArticlesController extends Controller
     {
         $article = Article::find($id);
         if ($article->user_id != Auth::user()->id)
-          $this->middleware('is.admin');
+            if (!Auth::user()->isAdmin)
+              return "error";
         $article->delete();
         session()->flash('alert-danger', 'Article was successful deleted!');
         return redirect('articles/index');
