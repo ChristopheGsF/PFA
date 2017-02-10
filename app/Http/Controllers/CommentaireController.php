@@ -39,11 +39,21 @@ class CommentaireController extends Controller
      */
     public function store(Request $request, $id)
     {
-      $store = \DB::table('comments')->insertGetId([
-        'content' => $request->content,
-        'user_id' => $request->user_id,
-        'article_id' => $request->article_id
-      ]);
+      $validator = Validator::make($request->all(), [
+           'content' => 'required',
+       ]);
+
+       if ($validator->fails()) {
+           return redirect('articles/'.$request->id.'/show')
+                       ->withErrors($validator)
+                       ->withInput();
+       }
+        $comment = new Comment;
+        $comment->article_id = $request->article_id;
+        $comment->content = $request->content;
+        $comment->user_id =  Auth::user()->id;
+        $comment->save();
+        $request->session()->flash('alert-success', 'Article was successful created!');
        return redirect('articles/'.$request->id.'/show');
 
     }
