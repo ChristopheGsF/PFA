@@ -16,7 +16,7 @@
                     <p>Created: {{$article->created_at}}</p>
                     <hr>
                     <img src="{{$article->img}}" alt="img-article">
-                    <hr>
+                    <hr class="img_empty">
                     <p>{{$article->content}}</p>
                     <form action='{{ route('articles.show', ['id' => $article->id]) }}' method="get">
                         <button type="submit" class="btn btn-warning"> Show </button>

@@ -2,7 +2,7 @@
 @include('messages.success')
 
 @section('content')
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
 <script>
   $(document).ready(function(){
     $('.comment_update').hide();
@@ -37,8 +37,8 @@
             </p>
             <hr>
             <p>Created: {{$article->created_at}}</p>
-            <hr>
-            <img src="{{$article->img}}" alt="img-article">
+            <hr class="img_empty">
+            <img src="{{$article->img}}" alt="img-article">         
             <hr>
             <p>{{$article->content}}</p>
             @if ( Auth::check())

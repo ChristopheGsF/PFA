@@ -20,7 +20,7 @@ class ArticlesController extends Controller
     */
     public function index()
     {
-        $articles = Article::Paginate(3);
+        $articles = Article::orderBy('articles.updated_at','DESC')->Paginate(3);
         $articles->withPath('index');
         return view("articles.index", ['articles' => $articles]);
     }
@@ -78,7 +78,7 @@ class ArticlesController extends Controller
     public function show($id)
     {
         $article = Article::find($id);
-        $comments = Article::find($article->id)->comments()->Paginate(5);
+        $comments = Article::find($article->id)->comments()->orderBy('comments.updated_at','DESC')->Paginate(5);
         $comments->withPath('show');
         return view("articles.show", ['article' => $article, 'comments' => $comments]);
     }
