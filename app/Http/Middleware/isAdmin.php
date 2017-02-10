@@ -19,7 +19,6 @@ class isAdmin
         if (\Auth::check() && \Auth::user()->isAdmin){
             return $next($request);
         }
-        // After this line, condition is not an admin (redirection to do
         return redirect('/');
     }
 

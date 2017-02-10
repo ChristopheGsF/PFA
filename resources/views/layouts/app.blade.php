@@ -80,11 +80,11 @@
                                         </form>
                                     </li>
                                     <li>
-                                        <a href="{{ route('user.profil') }}">
+                                        <a href="{{ route('user.hisprofil') }}">
                                             Profil
                                         </a>
 
-                                        <form id="logout-form" action="{{ route('user.profil') }}" method="POST" style="display: none;">
+                                        <form id="logout-form" action="{{ route('user.hisprofil') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>
                                     </li>

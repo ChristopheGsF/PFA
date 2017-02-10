@@ -14,9 +14,10 @@
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\Article::class, function (Faker\Generator $faker) {
     return [
-      'title' => $faker->title,
+      'title' => $faker->sentence($nbWords = 6, $variableNbWords = true),
       'content' => $faker->text,
-        'user_id' => function () {
+      'img' => $faker->imageUrl($width = 400, $height = 200),
+      'user_id' => function () {
             return factory(App\User::class)->create()->id;
         }
     ];

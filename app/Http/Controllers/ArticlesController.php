@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Article;
+use App\Comment;
 use App\User;
 use \App\Http\Middleware\isAdmin;
 use Validator;
@@ -19,7 +20,7 @@ class ArticlesController extends Controller
     */
     public function index()
     {
-        $articles = Article::simplePaginate(5);
+        $articles = Article::simplePaginate(3);
         return view("articles.index", ['articles' => $articles]);
     }
 
@@ -61,6 +62,13 @@ class ArticlesController extends Controller
     }
 
     /**
+    * Store a newly created resource in storage.
+    *
+    * @param  \Illuminate\Http\Request  $request
+    * @return \Illuminate\Http\Response
+    */
+
+    /**
     * Display the specified resource.
     *
     * @param  int  $id
@@ -69,7 +77,8 @@ class ArticlesController extends Controller
     public function show($id)
     {
         $article = Article::find($id);
-        return view("articles.show", ['article' => $article]);
+        $comments = Article::find($id)->comments()->simplePaginate(5);
+        return view("articles.show", ['article' => $article, 'comments' => $comments]);
     }
 
     /**
