@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\Comment;
+use App\Article;
+use Validator;
 
 class CommentaireController extends Controller
 {
@@ -76,7 +79,23 @@ class CommentaireController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $comment = Comment::find($id);
+        if ($comment->user_id != Auth::user()->id)
+            if (!Auth::user()->isAdmin)
+              return "error";
+      $validator = Validator::make($request->all(), [
+         'content' => 'required'
+     ]);
+
+     if ($validator->fails()) {
+         return redirect('articles/'.$comment->article_id.'/show')
+                     ->withErrors($validator)
+                     ->withInput();
+     }
+      $comment->content = $request->content;
+      $comment->save();
+      $request->session()->flash('alert-success', 'Comment was successful edited!');
+      return redirect('articles/'.$comment->article_id.'/show');
     }
 
     /**

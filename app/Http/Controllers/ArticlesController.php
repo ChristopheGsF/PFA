@@ -20,7 +20,8 @@ class ArticlesController extends Controller
     */
     public function index()
     {
-        $articles = Article::simplePaginate(3);
+        $articles = Article::Paginate(3);
+        $articles->withPath('index');
         return view("articles.index", ['articles' => $articles]);
     }
 
@@ -77,7 +78,8 @@ class ArticlesController extends Controller
     public function show($id)
     {
         $article = Article::find($id);
-        $comments = Article::find($id)->comments()->simplePaginate(5);
+        $comments = Article::find($article->id)->comments()->Paginate(5);
+        $comments->withPath('show');
         return view("articles.show", ['article' => $article, 'comments' => $comments]);
     }
 
