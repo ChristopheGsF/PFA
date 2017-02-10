@@ -37,8 +37,10 @@
             </p>
             <hr>
             <p>Created: {{$article->created_at}}</p>
-            <hr class="img_empty">
-            <img src="{{$article->img}}" alt="img-article">         
+            @if($article->img)
+            <hr>
+            <img src="{{$article->img}}" alt="img-article"> 
+            @endif        
             <hr>
             <p>{{$article->content}}</p>
             @if ( Auth::check())

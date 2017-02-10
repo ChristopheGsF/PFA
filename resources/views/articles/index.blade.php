@@ -15,8 +15,10 @@
                     </p>
                     <p>Created: {{$article->created_at}}</p>
                     <hr>
+                    @if($article->img)
                     <img src="{{$article->img}}" alt="img-article">
-                    <hr class="img_empty">
+                    <hr>
+                    @endif
                     <p>{{$article->content}}</p>
                     <form action='{{ route('articles.show', ['id' => $article->id]) }}' method="get">
                         <button type="submit" class="btn btn-warning"> Show </button>
