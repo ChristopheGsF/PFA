@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Article;
 use App\User;
-use Auth;
+use Illuminate\Support\Facades\Auth;
+use DB;
 
 class UserController extends Controller
 {
@@ -27,10 +28,15 @@ class UserController extends Controller
   public function edit_img(Request $request)
   {
     $id = Auth::user()->id;
-    return DB::table('users')
+    $imageName = 'Profil_image_utilisateur_numero_' . $id . '.' . 
+    $request->file('image')->getClientOriginalExtension();
+    $requete_nom_image = $request->file('image')->move(
+        base_path() . '/public/images/catalog/', $imageName
+    );
+    $db_users_img = DB::table('users')
             ->where('id', $id)
-            ->update(array('img' => $request->img));
-//      return view("user.profil",['articles' => $articles, 'user' => $user]);
+            ->update(['img'=>'images/catalog/'. $imageName]);
+    return redirect('user'); 
   }
 
 }

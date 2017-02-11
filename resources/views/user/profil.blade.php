@@ -8,14 +8,22 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-                    <img src="{{$user->img}}" alt="img-article">
+                    <img src="{{$user->img}}" style="width : 200px; height : auto;" alt="img-article">
                     @if (Auth::user()->id)
-                    <form action='{{ route('user.edit_img')}}' method="get">
-                        <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
-                        Select image to upload:
-                        <input type="file" name="fileToUpload" id="fileToUpload">
-                        <input type="submit" class="btn btn-success" value="Upload Image" name="submit">
-                    </form>
+                      {!! Form::open(
+                          array(
+                              'route' => 'user.edit_img', 
+                              'class' => 'form', 
+                              'novalidate' => 'novalidate', 
+                              'files' => true)) !!}
+                        <div class="form-group">
+                            {!! Form::label('Image') !!}
+                            {!! Form::file('image', null) !!}
+                        </div>
+                        <div class="form-group">
+                            {!! Form::submit('Upload Image!') !!}
+                        </div>
+                      {!! Form::close() !!}
                     @endif
                     <p>You are logged as {{$user->name}} !</p>
                     <p>Your email is  {{$user->email}}.</p>
