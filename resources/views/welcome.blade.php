@@ -74,6 +74,7 @@
                         <a href="{{ url('/login') }}">Login</a>
                         <a href="{{ url('/register') }}">Register</a>
                         <a href="{{ route('articles.index') }}">Articles</a>
+                        <a href="{{ route('contact.create') }}">Contact</a>
                     @endif
                 </div>
             @endif

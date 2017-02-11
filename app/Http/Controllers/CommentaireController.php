@@ -120,6 +120,6 @@ class CommentaireController extends Controller
       $id = $comment->article->id;
           $comment->delete();
           session()->flash('alert-danger', 'Comment was successful deleted!');
-          return redirect('articles/'.$id.'/show');
+          return back();
     }
 }

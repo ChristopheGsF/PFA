@@ -1,6 +1,6 @@
 @extends('layouts.app')
-@include('messages.success')
 @section('content')
+  @include('messages.success')
     <div class="container">
         <div class="row">
 

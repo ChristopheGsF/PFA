@@ -10,8 +10,18 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::group(['prefix' => 'admin', 'middleware' => 'is.admin'], function () {
+  Route::get('/{id}',['as' => 'admin.index', 'uses' => "AdminController@index"]);
+  Route::post('/delete/{id}', ['as' => 'admin.delete', 'uses' => "AdminController@destroy"]);
+  Route::post('/edit/{id}', ['as' => 'admin.edit', 'uses' => "AdminController@edit"]);
+  Route::post('/delete_contact/{id}', ['as' => 'admin.delete_contact', 'uses' => "AdminController@destroy_contact"]);
+  Route::post('/show/{id}', ['as' => 'admin.show', 'uses' => "AdminController@show"]);
+});
+
+Route::get('/',['as' => 'articles.index', 'uses' => "ArticlesController@index"]);
 Route::group(['prefix' => 'articles'], function () {
-  Route::get('/index',['as' => 'articles.index', 'uses' => "ArticlesController@index"]);
+  Route::get('/',['as' => 'articles.index', 'uses' => "ArticlesController@index"]);
   Route::get('/create',['as' => 'articles.create', 'uses' => "ArticlesController@create", 'middleware' => 'auth']);
   Route::post('/store',['as' => 'articles.store', 'uses' => "ArticlesController@store", 'middleware' => 'auth']);
   Route::get('/{id}/show', ['as' => 'articles.show', 'uses' => "ArticlesController@show"]);
@@ -25,15 +35,19 @@ Route::group(['prefix' => 'articles'], function () {
 
 Route::group(['prefix' => 'user'], function () {
   Route::get('/', ['as' => 'user.hisprofil', 'uses' => "UserController@index", 'middleware' => 'auth']);
-  Route::get('/edit_img', ['as' => 'user.edit_img', 'uses' => "UserController@edit_img", 'middleware' => 'auth']);
+  Route::post('/edit_img', ['as' => 'user.edit_img', 'uses' => "UserController@edit_img", 'middleware' => 'auth']);
   Route::get('/{id}/show', ['as' => 'user.profil', 'uses' => "UserController@show"]);
 });
 
+Route::group(['prefix' => 'contact'], function () {
+  Route::get('/create', ['as' => 'contact.create', 'uses' => "ContactController@create"]);
+  Route::post('/store', ['as' => 'contact.store', 'uses' => "ContactController@store"]);
+});
 
 Auth::routes();
 
 
-Route::get('/home', 'HomeController@index');
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/home', 'HomeController@index');
+// Route::get('/', function () {
+//     return view('welcome');
+// });

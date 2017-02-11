@@ -1,15 +1,19 @@
 @extends('layouts.app')
 @section('content')
+  @include('messages.success')
+
   <div class="container">
     <form class="well form-horizontal" action='store' method="post"  id="contact_form">
       <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
+      @if (Auth::check())
+        <input name="user_id" type="hidden" value={{ Auth::user()->id }}/>
+      @endif
       <fieldset>
 
         <!-- Form Name -->
-        <legend>Create an article:</legend>
+        <legend>Contact:</legend>
 
         <!-- Text input-->
-
         <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
           <label class="col-md-4 control-label">Title</label>
           <div class="col-md-4 inputGroupContainer">
@@ -21,6 +25,7 @@
             @endif
           </div>
         </div>
+
         <!-- Text area -->
 
         <div class="form-group{{ $errors->has('content') ? ' has-error' : '' }}">
@@ -30,6 +35,19 @@
             @if ($errors->has('content'))
                 <span class="help-block">
                     <strong>{{ $errors->first('content') }}</strong>
+                </span>
+            @endif
+          </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+          <label class="col-md-4 control-label">Email</label>
+          <div class="col-md-4 inputGroupContainer">
+            <input  name="email" placeholder="Email" class="form-control"  type="text" value="{{ old('email') }}">
+            @if ($errors->has('email'))
+                <span class="help-block">
+                    <strong>{{ $errors->first('email') }}</strong>
                 </span>
             @endif
           </div>

@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\UploadedFile;
 use App\Article;
 use App\User;
 use Auth;
+use Illuminate\Support\Facades\Input;
 
 class UserController extends Controller
 {
@@ -26,11 +28,14 @@ class UserController extends Controller
 
   public function edit_img(Request $request)
   {
-    $id = Auth::user()->id;
-    return DB::table('users')
-            ->where('id', $id)
-            ->update(array('img' => $request->img));
-//      return view("user.profil",['articles' => $articles, 'user' => $user]);
+    $id= Auth::user()->id;
+    $file = $request->file('fileToUpload');
+    $path = $request->file('fileToUpload')->path();
+    $extension = $request->file('fileToUpload')->extension();
+    $path = $request->file('fileToUpload')->store('imag');
+    DB::table('users')
+        ->where('id', $id )
+        ->update(['img' => $imageName]);
   }
 
 }

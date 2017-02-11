@@ -21,7 +21,7 @@ class ArticlesController extends Controller
     public function index()
     {
         $articles = Article::orderBy('articles.updated_at','DESC')->Paginate(3);
-        $articles->withPath('index');
+        $articles->withPath('');
         return view("articles.index", ['articles' => $articles]);
     }
 
@@ -143,6 +143,6 @@ class ArticlesController extends Controller
               return "error";
         $article->delete();
         session()->flash('alert-danger', 'Article was successful deleted!');
-        return redirect('articles/index');
+        return back();
     }
 }
