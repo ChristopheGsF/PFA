@@ -49,11 +49,13 @@
                 <td> {{$article->title}} </td>
                 <td> {{$article->content}} </td>
                 <td>
+                @if (Auth::check())
                     @if (Auth::user()->isAdmin == 1 || Auth::user()->id == $article->user_id)
                   <form action='{{ route('articles.edit', ['id' => $article->id]) }}' method="get">
                       <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
                           <button type="submit" class="btn btn-success"> Edit </button>
                   </form>
+                  @endif
               @endif
                   </td>
                   <td>
