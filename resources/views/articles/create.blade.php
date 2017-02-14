@@ -38,11 +38,10 @@
         @endforeach
       </fieldset>
     </form>
-    <form action='index' method="get">
-      <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
-      {{-- @if (isAdmin::isadmin() == 1)   --}}
-        <button type="submit" class="btn btn-danger"> Back </button>
-      {{-- @endif --}}
-    </form>
+    
+    {{-- @if (isAdmin::isadmin() == 1)   --}}
+      <a href="{{ route('articles.index')}}" class="btn btn-danger"> Back </a>
+    {{-- @endif --}}
+  
   </div>
 @endsection

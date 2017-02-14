@@ -12,7 +12,7 @@ class UserController extends Controller
 {
   public function index()
   {
-      $articles = User::find(Auth::user()->id)->articles()->simplePaginate(1);
+      $articles = User::find(Auth::user()->id)->articles()->Paginate(2);
       $user = User::find(Auth::user()->id);
 
       return view("user.profil",['articles' => $articles, 'user' => $user]);
