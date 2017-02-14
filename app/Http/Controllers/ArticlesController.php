@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Article;
 use App\Comment;
 use App\User;
+use App\Like;
 use \App\Http\Middleware\isAdmin;
 use Validator;
 
@@ -20,9 +21,10 @@ class ArticlesController extends Controller
     */
     public function index()
     {
-        $articles = Article::orderBy('articles.updated_at','DESC')->Paginate(3);
-        $articles->withPath('');
-        return view("articles.index", ['articles' => $articles]);
+        $articles = Article::Paginate(3);
+        $likes = Like::all();
+        $articles->withPath('articles');
+        return view("articles.index", ['articles' => $articles, 'likes' => $likes]);
     }
 
     /**
@@ -59,7 +61,7 @@ class ArticlesController extends Controller
         $article->user_id =  Auth::user()->id;
         $article->save();
         $request->session()->flash('alert-success', 'Article was successful created!');
-        return redirect('articles/index');
+        return redirect('/articles');
     }
 
     /**
@@ -78,7 +80,7 @@ class ArticlesController extends Controller
     public function show($id)
     {
         $article = Article::find($id);
-        $comments = Article::find($article->id)->comments()->orderBy('comments.updated_at','DESC')->Paginate(5);
+        $comments = Article::find($article->id)->comments()->Paginate(5);
         $comments->withPath('show');
         return view("articles.show", ['article' => $article, 'comments' => $comments]);
     }
@@ -126,7 +128,7 @@ class ArticlesController extends Controller
       $article->content = $request->content;
       $article->save();
       $request->session()->flash('alert-success', 'Article was successful edited!');
-      return redirect('articles/index');
+      return redirect('/articles');
     }
 
     /**
@@ -143,6 +145,32 @@ class ArticlesController extends Controller
               return "error";
         $article->delete();
         session()->flash('alert-danger', 'Article was successful deleted!');
-        return back();
+        return redirect('articles/index');
+    }
+
+    public function like(Request $request, $id)
+    {
+        $article = Article::find($id);
+        $existing_like = Like::all()->where('article_id', $article->id)->where('user_id', Auth::id())->first();
+        if (is_null($existing_like)) {
+          $like = new Like;
+          $like->article_id = $article->id;
+          $like->user_id =  Auth::user()->id;
+          $like->save();
+          return redirect('articles');
+        }
+        else {
+          return redirect('articles');
+        }
+    }
+
+    public function delete_like($id)
+    {
+        $like = Like::find($id);
+        if ($like->user_id != Auth::user()->id)
+            if (!Auth::user()->isAdmin)
+              return "error";
+        $like->delete();
+        return redirect('articles');
     }
 }

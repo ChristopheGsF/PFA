@@ -44,8 +44,11 @@
         </div>
       </fieldset>
     </form>
-    <form action='{{route('articles.index')}}' method="get">
-        <button type="submit" class="btn btn-danger"> Back </button>
-    </form>
+    
+    {{-- @if (isAdmin::isadmin() == 1)   --}}
+      <a href="{{ route('articles.index')}}" class="btn btn-danger"> Back </a>
+    {{-- @endif --}}
+  
+
   </div>
 @endsection

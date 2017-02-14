@@ -31,6 +31,8 @@ Route::group(['prefix' => 'articles'], function () {
   Route::post('/{id}/comment/store',['as' => 'comments.store', 'uses' => "CommentaireController@store", 'middleware' => 'auth']);
   Route::post('/{id}/comment/update',['as' => 'comments.update', 'uses' => "CommentaireController@update", 'middleware' => 'auth']);
   Route::post('/{id}/comment/delete', ['as' => 'comments.delete', 'uses' => "CommentaireController@destroy", 'middleware' => 'auth']);
+  Route::post('/{id}/like', ['as' => 'articles.like', 'uses' => "ArticlesController@like", 'middleware' => 'auth']);
+  Route::post('/{id}/delete_like', ['as' => 'articles.delete_like', 'uses' => "ArticlesController@delete_like", 'middleware' => 'auth']);
 });
 
 Route::group(['prefix' => 'user'], function () {
@@ -47,7 +49,7 @@ Route::group(['prefix' => 'contact'], function () {
 Auth::routes();
 
 
-// Route::get('/home', 'HomeController@index');
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/home', 'HomeController@index');
+Route::get('/', function () {
+     return view('welcome');
+ });

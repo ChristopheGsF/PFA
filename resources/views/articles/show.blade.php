@@ -93,10 +93,7 @@
           @endforeach
           {{ $comments->links() }}
         </div>
-        <form action='{{ route('articles.index') }}' method="get">
-          <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
-          <button type="submit" class="btn btn-danger"> Back </button>
-        </form>
+          <a href="{{ route('articles.index') }}" class="btn btn-danger"> Back </a>
       </div>
 
     </div>
