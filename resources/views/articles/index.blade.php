@@ -16,7 +16,7 @@
                     <p>Created: {{$article->created_at}}</p>
                     <hr>
                     @if ($article->img)
-                    <img src="{{$article->img}}" alt="img-article">
+                    <img src="{{$article->img}}" alt="img-article" style="width : 500px; height : auto;">
                     <hr>
                     @endif
                     <p>{{$article->content}}</p>

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
   <div class="container">
-    <form class="well form-horizontal" action='store' method="post"  id="contact_form">
+    <form class="well form-horizontal" action='store' method="post" enctype="multipart/form-data" novalidate="novalidate" accept-charset="UTF-8" id="contact_form">
       <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
       <fieldset>
 
@@ -32,6 +32,15 @@
                     <strong>{{ $errors->first('content') }}</strong>
                 </span>
             @endif
+          </div>
+        </div>
+
+        <!-- Image -->
+
+        <div class="form-group">
+          <label class="col-md-4 control-label">Image</label>
+          <div class="col-md-4 inputGroupContainer">
+            <input name="image" type="file">
           </div>
         </div>
 
