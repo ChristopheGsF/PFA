@@ -40,6 +40,9 @@ class ContactController extends Controller
     {
     //    dd($request);
       $validator = Validator::make($request->all(), [
+        'name' => 'required|max:255',
+        'last_name' => 'required|max:255',
+        'number' => 'required|regex:/(0)[0-9]{9}/',
          'title' => 'required|max:255',
          'email' => 'required|email|max:255',
          'content' => 'required',
@@ -52,6 +55,9 @@ class ContactController extends Controller
                      ->withInput();
      }
       $contact = new Contact;
+      $contact->name = $request->name;
+      $contact->last_name = $request->last_name;
+      $contact->number = $request->number;
       $contact->title = $request->title;
       $contact->content = $request->content;
       $contact->email = $request->email;
