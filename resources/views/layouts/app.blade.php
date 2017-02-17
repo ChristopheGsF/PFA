@@ -61,7 +61,7 @@
                                             Articles
                                         </a>
 
-                                        <form id="logout-form" action="{{ route('articles.index') }}" method="get" style="display: none;">
+                                        <form id="form" action="{{ route('articles.index') }}" method="get" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
@@ -70,7 +70,7 @@
                                             Message
                                         </a>
 
-                                        <form id="logout-form" action="{{ route('inboxe.index') }}" method="POST" style="display: none;">
+                                        <form id="form" action="{{ route('inboxe.index') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
@@ -79,7 +79,7 @@
                                             Profil
                                         </a>
 
-                                        <form id="logout-form" action="{{ route('user.hisprofil') }}" method="POST" style="display: none;">
+                                        <form id="form" action="{{ route('user.hisprofil') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
@@ -88,7 +88,7 @@
                                             Contact
                                         </a>
 
-                                        <form id="logout-form" action="{{ route('contact.create') }}" method="POST" style="display: none;">
+                                        <form id="form" action="{{ route('contact.create') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
@@ -98,7 +98,7 @@
                                                 Admin
                                             </a>
 
-                                            <form id="logout-form" action="{{ route('admin.index', 1) }}" method="POST" style="display: none;">
+                                            <form id="form" action="{{ route('admin.index', 1) }}" method="POST" style="display: none;">
                                                 {{ csrf_field() }}
                                             </form>
                                         </li>
