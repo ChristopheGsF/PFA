@@ -26,6 +26,45 @@
           </div>
         </div>
 
+        <!-- Text input-->
+        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+          <label class="col-md-4 control-label">Name</label>
+          <div class="col-md-4 inputGroupContainer">
+            <input  name="name" placeholder="Name" class="form-control" value="{{ old('name') }}"  type="text">
+            @if ($errors->has('name'))
+                <span class="help-block">
+                    <strong>{{ $errors->first('name') }}</strong>
+                </span>
+            @endif
+          </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group{{ $errors->has('last_name') ? ' has-error' : '' }}">
+          <label class="col-md-4 control-label">Last_name</label>
+          <div class="col-md-4 inputGroupContainer">
+            <input  name="last_name" placeholder="Last Name" class="form-control" value="{{ old('last_name') }}"  type="text">
+            @if ($errors->has('last_name'))
+                <span class="help-block">
+                    <strong>{{ $errors->first('last_name') }}</strong>
+                </span>
+            @endif
+          </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group{{ $errors->has('number') ? ' has-error' : '' }}">
+          <label class="col-md-4 control-label">Phone Number</label>
+          <div class="col-md-4 inputGroupContainer">
+            <input  name="number" placeholder="Phone number" class="form-control" value="{{ old('number') }}"  type="text">
+            @if ($errors->has('number'))
+                <span class="help-block">
+                    <strong>{{ $errors->first('number') }}</strong>
+                </span>
+            @endif
+          </div>
+        </div>
+
         <!-- Text area -->
 
         <div class="form-group{{ $errors->has('content') ? ' has-error' : '' }}">

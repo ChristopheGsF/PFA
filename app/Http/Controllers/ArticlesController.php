@@ -10,7 +10,7 @@ use App\User;
 use App\Like;
 use \App\Http\Middleware\isAdmin;
 use Validator;
-
+use Input;
 
 class ArticlesController extends Controller
 {
@@ -57,15 +57,17 @@ class ArticlesController extends Controller
        }
         $article = new Article;
         $user_id = Auth::user()->id;
-        $imageName = 'Article_image_utilisateur_numero_' . $user_id . '.' . 
-        $request->file('image')->getClientOriginalExtension();
-        $requete_nom_image = $request->file('image')->move(
+        if (Input::hasFile('image')) {
+          $imageName = 'Article_image_utilisateur_numero_' . $user_id . '.' .
+          $request->file('image')->getClientOriginalExtension();
+          $requete_nom_image = $request->file('image')->move(
             base_path() . '/public/images/catalog/', $imageName
-        );
+          );
+          $article->img = 'images/catalog/'. $imageName;
+        }
         $article->title = $request->title;
         $article->content = $request->content;
         $article->user_id =  Auth::user()->id;
-        $article->img = 'images/catalog/'. $imageName;
         $article->save();
         $request->session()->flash('alert-success', 'Article was successful created!');
         return redirect(route('articles.index'));
@@ -131,7 +133,7 @@ class ArticlesController extends Controller
                      ->withInput();
      }
       $user_id = Auth::user()->id;
-      $imageName = 'Article_image_utilisateur_numero_' . $user_id . '.' . 
+      $imageName = 'Article_image_utilisateur_numero_' . $user_id . '.' .
       $request->file('image')->getClientOriginalExtension();
       $requete_nom_image = $request->file('image')->move(
           base_path() . '/public/images/catalog/', $imageName
