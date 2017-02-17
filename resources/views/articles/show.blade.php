@@ -22,10 +22,6 @@
   </script>
   <div class="container">
     <div class="row">
-      @foreach ($errors->all() as $message)
-        <div class="alert alert-danger"> {{$message}}</div>
-        <br>
-      @endforeach
 
       <div class="col-md-8 col-md-offset-2">
         <div class="container">
@@ -52,8 +48,13 @@
                     <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
                     <input name="user_id" type="hidden" value="{{ Auth::user()->id }}"/>
                     <input name="article_id" type="hidden" value="{{ $article->id }}"/>
-                    <div class="form-group">
+                    <div class="form-group{{ $errors->has('content') ? ' has-error' : '' }}">
                       <textarea class="form-control" name="content" row="3"></textarea>
+                      @if ($errors->has('content'))
+                          <span class="help-block">
+                              <strong>{{ $errors->first('content') }}</strong>
+                          </span>
+                      @endif
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                   </form>
@@ -78,10 +79,12 @@
                         <button type="submit" class="btn btn-danger comment_edit"> Edit </button>
                         <form class="comment_update" action='{{ route('comments.update', ['id' => $comment->id]) }}' method="post">
                           <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
+
                           <textarea name="content">{{ $comment->content }}</textarea>
                           <button type="submit" class="btn btn-success"> Save </button>
                           <a class="btn btn-default comment_back"> Back </a>
                         </form>
+
                         <form class="comment_delete" action='{{ route('comments.delete', ['id' => $comment->id]) }}' method="post">
                           <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
                           <button type="submit" class="btn btn-warning"> Delete </button>

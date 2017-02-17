@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@include('messages.success')
 
 @section('content')
 <div class="container">
@@ -13,9 +14,9 @@
                       @if (Auth::user()->id)
                         {!! Form::open(
                             array(
-                                'route' => 'user.edit_img', 
-                                'class' => 'form', 
-                                'novalidate' => 'novalidate', 
+                                'route' => 'user.edit_img',
+                                'class' => 'form',
+                                'novalidate' => 'novalidate',
                                 'files' => true)) !!}
                           <div class="form-group">
                               {!! Form::label('Image') !!}

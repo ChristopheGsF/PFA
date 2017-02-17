@@ -26,10 +26,12 @@
 
                     <hr>
                 @endforeach
-                <form action='create' method="get">
+                @if (Auth::check())
+                  <form action='{{ route('articles.create') }}' method="get">
                     <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
                     <button type="submit" class="btn btn-success"> Create </button>
-                </form>
+                  </form>
+                @endif
                 {{ $articles->links() }}
             </div>
         </div>

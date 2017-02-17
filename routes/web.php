@@ -19,7 +19,17 @@ Route::group(['prefix' => 'admin', 'middleware' => 'is.admin'], function () {
   Route::post('/show/{id}', ['as' => 'admin.show', 'uses' => "AdminController@show"]);
 });
 
-Route::get('/',['as' => 'articles.index', 'uses' => "ArticlesController@index"]);
+Route::group(['prefix' => 'inbox'], function () {
+  Route::get('/', ['as' => 'inboxe.index', 'uses' => "InboxController@index"]);
+  Route::get('/{id}/show', ['as' => 'inboxe.show', 'uses' => "InboxController@show"]);
+  Route::get('/contacts', ['as' => 'inboxe.contacts', 'uses' => "InboxController@contacts"]);
+  Route::get('{id}/newgroup', ['as' => 'inboxe.newgroup', 'uses' => "InboxController@newgroup"]);
+  Route::post('{id}/send',['as' => 'inboxe.send', 'uses' => "InboxController@send"]);
+});
+
+
+Route::get('/',['as' => 'index', 'uses' => "ArticlesController@index"]);
+Route::get('/home',['as' => 'index', 'uses' => "ArticlesController@index"]);
 Route::group(['prefix' => 'articles'], function () {
   Route::get('/',['as' => 'articles.index', 'uses' => "ArticlesController@index"]);
   Route::get('/create',['as' => 'articles.create', 'uses' => "ArticlesController@create", 'middleware' => 'auth']);

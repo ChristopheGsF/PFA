@@ -59,7 +59,7 @@ class ArticlesController extends Controller
         $article->user_id =  Auth::user()->id;
         $article->save();
         $request->session()->flash('alert-success', 'Article was successful created!');
-        return redirect('articles/index');
+        return redirect(route('articles.index'));
     }
 
     /**
