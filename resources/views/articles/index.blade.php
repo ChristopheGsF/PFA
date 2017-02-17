@@ -42,7 +42,24 @@
                             <button type="submit" class="btn btn-primary"> Like </button>
                         </form>
                     @endif
-
+                    <!-- Facebook Partage -->
+                        <div id="fb-root"></div>
+                        <script>(function(d, s, id) {
+                          var js, fjs = d.getElementsByTagName(s)[0];
+                          if (d.getElementById(id)) return;
+                          js = d.createElement(s); js.id = id;
+                          js.src = "//connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v2.8";
+                          fjs.parentNode.insertBefore(js, fjs);
+                        }(document, 'script', 'facebook-jssdk'));</script>
+                        <div class="fb-share-button" data-layout="box_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u&amp;src=sdkpreparse">Partager</a></div>
+                    <!-- Twitter Partage -->
+                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                        <a href="https://twitter.com/share" class="twitter-share-button" data-text="{{$article->title}}  <?php echo "\n"; ?>par {{$article->user->name}} <?php echo "\n"; ?>Créée : {{$article->created_at}} <?php echo "\n"; ?>{{$article->content}}<?php echo "\n"; ?>Lien de l'article :" data-lang="fr" data-size="large">Tweeter</a>
+                   <!-- Google+ Partage -->
+                       <div class="a2a_kit" style="width : 70px; float:left;">
+                            <a class="a2a_button_google_plus_share" data-text="{{$article->title}}  <?php echo "\n"; ?>par {{$article->user->name}} <?php echo "\n"; ?>Créée : {{$article->created_at}} <?php echo "\n"; ?>{{$article->content}}<?php echo "\n"; ?>Lien de l'article :" data-annotation="vertical-bubble" data-href="http://127.0.0.1:8000/articles"></a>
+                        </div>
+                        <script async src="//static.addtoany.com/menu/page.js"></script>
                     <hr>
                 @endforeach
                 <p><a href="{{ route('articles.create')}}" class="btn btn-success"> Create </a></p>
