@@ -9,7 +9,7 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-                    <img src="{{$user->img}}" style="width : 200px; height : auto;" alt="img-article">
+                    <img src="/{{$user->img}}" style="width : 200px; height : auto;" alt="img-article">
                     @if (Auth::check())
                       @if (Auth::user()->id)
                         {!! Form::open(

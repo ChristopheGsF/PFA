@@ -35,7 +35,7 @@
               <p>Created: {{$article->created_at}}</p>
               @if($article->img)
                 <hr>
-                <img src="{{$article->img}}" alt="img-article">
+                <img src="/{{$article->img}}" style="width : 500px; height : auto;" alt="img-article">
               @endif
               <hr>
               <p>{{$article->content}}</p>
@@ -96,10 +96,7 @@
           @endforeach
           {{ $comments->links() }}
         </div>
-        <form action='{{ route('articles.index') }}' method="get">
-          <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
-          <button type="submit" class="btn btn-danger"> Back </button>
-        </form>
+          <a href="{{ route('articles.index') }}" class="btn btn-danger"> Back </a>
       </div>
 
     </div>

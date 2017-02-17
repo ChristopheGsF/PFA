@@ -37,6 +37,7 @@ class UserController extends Controller
             ->where('id', $id)
             ->update(['img'=>'images/catalog/'. $imageName]);
     return redirect('user');
+
   }
 
 }
