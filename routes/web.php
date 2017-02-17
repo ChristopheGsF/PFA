@@ -19,7 +19,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'is.admin'], function () {
   Route::post('/show/{id}', ['as' => 'admin.show', 'uses' => "AdminController@show"]);
 });
 
-Route::group(['prefix' => 'inbox'], function () {
+Route::group(['prefix' => 'inbox', 'middleware' => 'auth'], function () {
   Route::get('/', ['as' => 'inboxe.index', 'uses' => "InboxController@index"]);
   Route::get('/{id}/show', ['as' => 'inboxe.show', 'uses' => "InboxController@show"]);
   Route::get('/contacts', ['as' => 'inboxe.contacts', 'uses' => "InboxController@contacts"]);
@@ -30,6 +30,7 @@ Route::group(['prefix' => 'inbox'], function () {
 
 Route::get('/',['as' => 'index', 'uses' => "ArticlesController@index"]);
 Route::get('/home',['as' => 'index', 'uses' => "ArticlesController@index"]);
+
 Route::group(['prefix' => 'articles'], function () {
   Route::get('/',['as' => 'articles.index', 'uses' => "ArticlesController@index"]);
   Route::get('/create',['as' => 'articles.create', 'uses' => "ArticlesController@create", 'middleware' => 'auth']);
@@ -58,7 +59,7 @@ Route::group(['prefix' => 'contact'], function () {
 
 Auth::routes();
 
-// 
+//
 // Route::get('/home', 'HomeController@index');
 // Route::get('/', function () {
 //      return view('welcome');

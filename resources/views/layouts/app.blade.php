@@ -83,6 +83,15 @@
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
+                                    <li>
+                                        <a href="{{ route('contact.create') }}">
+                                            Contact
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('contact.create') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </li>
                                     @if (Auth::user()->isAdmin)
                                         <li>
                                             <a href="{{ route('admin.index', 1) }}">
