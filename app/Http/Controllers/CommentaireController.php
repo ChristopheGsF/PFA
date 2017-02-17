@@ -53,7 +53,7 @@ class CommentaireController extends Controller
         $comment->content = $request->content;
         $comment->user_id =  Auth::user()->id;
         $comment->save();
-        $request->session()->flash('alert-success', 'Article was successful created!');
+        $request->session()->flash('alert-success', 'Comment was successful created!');
        return redirect('articles/'.$request->id.'/show');
 
     }

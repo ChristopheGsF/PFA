@@ -11,19 +11,29 @@
 
       <!-- Text input-->
 
-      <div class="form-group">
+      <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
         <label class="col-md-4 control-label">Title</label>
         <div class="col-md-4 inputGroupContainer">
           <input  name="title" placeholder="{{$article->title}}" class="form-control"  type="text" value="{{$article->title}}">
-
+          @if ($errors->has('title'))
+              <span class="help-block">
+                  <strong>{{ $errors->first('title') }}</strong>
+              </span>
+          @endif
         </div>
       </div>
+      
       <!-- Text area -->
 
-      <div class="form-group">
+      <div class="form-group{{ $errors->has('content') ? ' has-error' : '' }}">
         <label class="col-md-4 control-label">Content</label>
         <div class="col-md-4 inputGroupContainer">
           <textarea class="form-control" name="content" placeholder="Content">{{$article->content}}</textarea>
+          @if ($errors->has('content'))
+              <span class="help-block">
+                  <strong>{{ $errors->first('content') }}</strong>
+              </span>
+          @endif
         </div>
       </div>
 
@@ -44,10 +54,6 @@
 
         </div>
       </div>
-      @foreach ($errors->all() as $message)
-          {{$message}}
-          <br>
-      @endforeach
     </fieldset>
   </form>
   <form action='show' method="get">

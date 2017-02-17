@@ -12,7 +12,7 @@ class UserController extends Controller
 {
   public function index()
   {
-      $articles = User::find(Auth::user()->id)->articles()->Paginate(2);
+      $articles = User::find(Auth::user()->id)->articles()->simplePaginate(5);
       $user = User::find(Auth::user()->id);
 
       return view("user.profil",['articles' => $articles, 'user' => $user]);
@@ -28,7 +28,7 @@ class UserController extends Controller
   public function edit_img(Request $request)
   {
     $id = Auth::user()->id;
-    $imageName = 'Profil_image_utilisateur_numero_' . $id . '.' . 
+    $imageName = 'Profil_image_utilisateur_numero_' . $id . '.' .
     $request->file('image')->getClientOriginalExtension();
     $requete_nom_image = $request->file('image')->move(
         base_path() . '/public/images/catalog/', $imageName

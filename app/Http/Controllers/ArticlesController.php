@@ -68,7 +68,7 @@ class ArticlesController extends Controller
         $article->img = 'images/catalog/'. $imageName;
         $article->save();
         $request->session()->flash('alert-success', 'Article was successful created!');
-        return redirect('/articles');
+        return redirect(route('articles.index'));
     }
 
     /**
