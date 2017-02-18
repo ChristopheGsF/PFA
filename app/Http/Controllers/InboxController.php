@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Validator;
 use App\Http\Controllers\Controller;
 use App\User;
 use App\Inbox;
@@ -68,12 +69,22 @@ class InboxController extends Controller
 
   public function send(Request $request, $id)
   {
-    $inbox = new Inbox;
-    $inbox->hash_id = $request->hash;
-    $inbox->content = $request->content;
-    $inbox->user_name =  Auth::user()->name;
-    $inbox->save();
-    $request->session()->flash('alert-success', 'Message was send!');
-    return back();
+    $validator = Validator::make($request->all(), [
+       'content' => 'required'
+   ]);
+
+   if ($validator->fails()) {
+     $messages = $validator->messages();
+       return back()
+                   ->withErrors($validator)
+                   ->withInput();
+   }
+   $inbox = new Inbox;
+   $inbox->hash_id = $request->hash;
+   $inbox->content = $request->content;
+   $inbox->user_name =  Auth::user()->name;
+   $inbox->save();
+   $request->session()->flash('alert-success', 'Message was send!');
+   return back();
   }
 }

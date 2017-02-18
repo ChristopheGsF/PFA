@@ -3,6 +3,11 @@
 @section('content')
     <div class="container">
         <div class="row">
+          <div class="col-md-2">
+            <div class="list-group select-menu rotate">
+              <a href="{{ route('articles.create')}}" class="list-group-item"> Create </a>
+            </div>
+          </div>
 
             <div class="col-md-8 col-md-offset-2">
                 {{ $articles->links() }}
@@ -42,6 +47,9 @@
                             <button type="submit" class="btn btn-primary"> Like </button>
                         </form>
                     @endif
+                    <br/>
+                    <br/>
+
                     <!-- Facebook Partage -->
                         <div id="fb-root"></div>
                         <script>(function(d, s, id) {
@@ -62,7 +70,6 @@
                         <script async src="//static.addtoany.com/menu/page.js"></script>
                     <hr>
                 @endforeach
-                <p><a href="{{ route('articles.create')}}" class="btn btn-success"> Create </a></p>
                 {{ $articles->links() }}
             </div>
         </div>

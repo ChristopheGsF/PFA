@@ -38,7 +38,6 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-    //    dd($request);
       $validator = Validator::make($request->all(), [
         'name' => 'required|max:255',
         'last_name' => 'required|max:255',

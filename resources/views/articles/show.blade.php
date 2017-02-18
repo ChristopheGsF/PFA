@@ -35,7 +35,7 @@
               <p>Created: {{$article->created_at}}</p>
               @if($article->img)
                 <hr>
-                <img src="/{{$article->img}}" style="width : 500px; height : auto;" alt="img-article">
+                <img src="{{$article->img}}" style="width : 500px; height : auto;" alt="img-article">
               @endif
               <hr>
               <p>{{$article->content}}</p>
@@ -66,7 +66,7 @@
               @foreach ($comments as $comment)
                 <div class="media">
                   <a class="pull-left" href={{route("user.profil",$comment->user->id)}}>
-                    <img class="media-object" style="width: 50px; height:50px;" src="/{{$comment->user->img}}" alt="">
+                    <img class="media-object" style="width: 50px; height:50px;" src="{{$comment->user->img}}" alt="">
                     <div class="media-body">
                       <h4 class="media-heading">{{$comment->user->name}}
                       </a>

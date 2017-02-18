@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@include('messages.success')
 @section('content')
   <div class="container">
     <form class="well form-horizontal" action='store' method="post" enctype="multipart/form-data" novalidate="novalidate" accept-charset="UTF-8" id="contact_form">
@@ -53,11 +54,11 @@
         </div>
       </fieldset>
     </form>
-    
+
     {{-- @if (isAdmin::isadmin() == 1)   --}}
       <a href="{{ route('articles.index')}}" class="btn btn-danger"> Back </a>
     {{-- @endif --}}
-  
+
 
   </div>
 @endsection

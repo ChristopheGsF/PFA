@@ -7,6 +7,7 @@ use App\Article;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Input;
+use Validator;
 use DB;
 
 class UserController extends Controller
@@ -29,6 +30,10 @@ class UserController extends Controller
   public function edit_img(Request $request)
   {
     if (Input::hasFile('image')) {
+      if (strpos("jpgpng", $request->file('image')->getClientOriginalExtension()) === false) {
+        $request->session()->flash('alert-danger', 'Profil image bad extension ! (only jpg or png)');
+        return back();
+      }
       $id = Auth::user()->id;
       $imageName = 'Profil_image_utilisateur_numero_' . $id . '.' .
       $request->file('image')->getClientOriginalExtension();
@@ -37,7 +42,7 @@ class UserController extends Controller
       );
       $db_users_img = DB::table('users')
       ->where('id', $id)
-      ->update(['img'=>'images/catalog/'. $imageName]);
+      ->update(['img'=>'/images/catalog/'. $imageName]);
       $request->session()->flash('alert-success', 'Profil image updated !');
       return redirect('user');
     }

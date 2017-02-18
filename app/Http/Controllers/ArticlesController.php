@@ -49,8 +49,13 @@ class ArticlesController extends Controller
            'title' => 'required|unique:articles',
            'content' => 'required',
        ]);
-
-       if ($validator->fails()) {
+       if (Input::hasFile('image') && (strpos("jpgpng", $request->file('image')->getClientOriginalExtension()) === false)) {
+           $request->session()->flash('alert-danger', 'Image bad extension ! (only jpg or png)');
+           return redirect('articles/create')
+                       ->withErrors($validator)
+                       ->withInput();
+       }
+       elseif ($validator->fails()) {
            return redirect('articles/create')
                        ->withErrors($validator)
                        ->withInput();
@@ -63,7 +68,7 @@ class ArticlesController extends Controller
           $requete_nom_image = $request->file('image')->move(
             base_path() . '/public/images/catalog/', $imageName
           );
-          $article->img = 'images/catalog/'. $imageName;
+          $article->img = '/images/catalog/'. $imageName;
         }
         $article->title = $request->title;
         $article->content = $request->content;
@@ -118,16 +123,21 @@ class ArticlesController extends Controller
     */
     public function update(Request $request, $id)
     {
-        $article = Article::find($id);
-        if ($article->user_id != Auth::user()->id)
-            if (!Auth::user()->isAdmin)
-              return "error";
+    $article = Article::find($id);
+    if ($article->user_id != Auth::user()->id)
+        if (!Auth::user()->isAdmin)
+            return "error";
       $validator = Validator::make($request->all(), [
          'title' => 'required',
          'content' => 'required',
      ]);
-
-     if ($validator->fails()) {
+     if (Input::hasFile('image') && (strpos("jpgpng", $request->file('image')->getClientOriginalExtension()) === false)) {
+         $request->session()->flash('alert-danger', 'Image bad extension ! (only jpg or png)');
+         return redirect('articles/'.$id.'/edit')
+                     ->withErrors($validator)
+                     ->withInput();
+     }
+     elseif ($validator->fails()) {
          return redirect('articles/'.$id.'/edit')
                      ->withErrors($validator)
                      ->withInput();

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@include('messages.success')
 @section('content')
 <div class="container">
   <form class="well form-horizontal" action='update' method="post" enctype="multipart/form-data" novalidate="novalidate" accept-charset="UTF-8" id="contact_form">
@@ -22,7 +22,7 @@
           @endif
         </div>
       </div>
-      
+
       <!-- Text area -->
 
       <div class="form-group{{ $errors->has('content') ? ' has-error' : '' }}">
