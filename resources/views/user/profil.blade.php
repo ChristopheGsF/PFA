@@ -79,6 +79,15 @@ $(document).ready(function(){
                         </div>
                       @endif
                     @endif
+                    @if (!Auth::check())
+                      <div class="col-md-6">
+                          <div class="col-md-12">
+                            <p>Tu pourras voir ici tous les articles écrites par {{$user->name}} !</p>
+                            <p>Intéressant ? Non ?</p>
+                            <a href="#articles"><img src="http://icon-icons.com/icons2/936/PNG/512/hand-finger-pointing-down_icon-icons.com_73538.png" alt="Doigt qui pointe vers le bas" style="width : 100px; height : auto;"></a>
+                          </div>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>
@@ -95,7 +104,7 @@ $(document).ready(function(){
             <tbody>
               @foreach ($articles as $article)
               <tr>
-                <td> {{$article->title}} </td>
+                <td><a href="{{ route('articles.index') }}/{{$article->id}}/show">{{$article->title}}</a></td>
                 <td> {{$article->content}} </td>
                 <td>
                 @if (Auth::check())
