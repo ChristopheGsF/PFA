@@ -42,6 +42,10 @@
       <div class="form-group">
         <label class="col-md-4 control-label">Image</label>
         <div class="col-md-4 inputGroupContainer">
+          @if ($article->img)
+            <img src="{{$article->img}}" alt="img-article" style="width : 200px; height : auto;">
+            <hr>
+          @endif
           <input name="image" type="file">
         </div>
       </div>

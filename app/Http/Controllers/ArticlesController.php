@@ -143,15 +143,15 @@ class ArticlesController extends Controller
                      ->withInput();
      }
       $user_id = Auth::user()->id;
-      $imageName = 'Article_image_utilisateur_numero_' . $user_id . '.' .
-      $request->file('image')->getClientOriginalExtension();
-      $requete_nom_image = $request->file('image')->move(
-          base_path() . '/public/images/catalog/', $imageName
-      );
       $article = Article::find($id);
       $article->title = $request->title;
       $article->content = $request->content;
-      $article->img = 'images/catalog/'. $imageName;
+      if (Input::hasFile('image')) {
+          $imageName = 'Article_image_utilisateur_numero_' . $user_id . '.' .
+          $request->file('image')->getClientOriginalExtension();
+          $requete_nom_image = $request->file('image')->move(base_path() . '/public/images/catalog/', $imageName);
+          $article->img = '/images/catalog/'. $imageName;
+      }
       $article->save();
       $request->session()->flash('alert-success', 'Article was successful edited!');
       return redirect('/articles');
