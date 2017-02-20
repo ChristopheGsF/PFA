@@ -4,9 +4,9 @@
 @section('content')
 <script>
 $(document).ready(function(){
-  $("a").on('click', function(event) 
+  $("a").on('click', function(event)
               {
-                if (this.hash !== "") 
+                if (this.hash !== "")
                 {
                   event.preventDefault();
                   var hash = this.hash;
@@ -17,7 +17,7 @@ $(document).ready(function(){
                   {
                     window.location.hash = hash;
                   });
-                } 
+                }
               });
 });
 </script>
@@ -30,7 +30,7 @@ $(document).ready(function(){
                 <div class="panel-body">
                     <h1 class="text-center">{{$user->name}}</h1>
                     @if ($user->img)
-                      <img src="/{{$user->img}}" style="width : 200px; height : auto; float:left;" alt="img-article">
+                      <img src="{{$user->img}}" style="width : 200px; height : auto; float:left;" alt="img-article">
                     @else
                       <div class="col-md-6">
                         <p>Cet(te) utilisateur n'a pas d'image de profil pour l'instant</p>
