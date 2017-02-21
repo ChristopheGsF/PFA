@@ -62,8 +62,10 @@ class ArticlesController extends Controller
        }
         $article = new Article;
         $user_id = Auth::user()->id;
+        $articles = Article::all()->last()->id;
+        $articles +=1;
         if (Input::hasFile('image')) {
-          $imageName = 'Article_image_'. $article->id .'_utilisateur_numero_' . $user_id . '.' .
+          $imageName = 'Article_image_'. $articles .'_utilisateur_numero_' . $user_id . '.' .
           $request->file('image')->getClientOriginalExtension();
           $requete_nom_image = $request->file('image')->move(
             base_path() . '/public/images/catalog/', $imageName
