@@ -63,7 +63,7 @@ class ArticlesController extends Controller
         $article = new Article;
         $user_id = Auth::user()->id;
         if (Input::hasFile('image')) {
-          $imageName = 'Article_image_utilisateur_numero_' . $user_id . '.' .
+          $imageName = 'Article_image_'. $article->id .'_utilisateur_numero_' . $user_id . '.' .
           $request->file('image')->getClientOriginalExtension();
           $requete_nom_image = $request->file('image')->move(
             base_path() . '/public/images/catalog/', $imageName
@@ -143,11 +143,10 @@ class ArticlesController extends Controller
                      ->withInput();
      }
       $user_id = Auth::user()->id;
-      $article = Article::find($id);
       $article->title = $request->title;
       $article->content = $request->content;
       if (Input::hasFile('image')) {
-          $imageName = 'Article_image_utilisateur_numero_' . $user_id . '.' .
+          $imageName = 'Article_image_'. $article->id .'_utilisateur_numero_' . $user_id . '.' .
           $request->file('image')->getClientOriginalExtension();
           $requete_nom_image = $request->file('image')->move(base_path() . '/public/images/catalog/', $imageName);
           $article->img = '/images/catalog/'. $imageName;
