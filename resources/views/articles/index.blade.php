@@ -1,8 +1,6 @@
 @extends('layouts.app')
 @include('messages.success')
 @section('content')
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 <script>
 
     var popupSize = {
