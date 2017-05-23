@@ -22,22 +22,18 @@
   </script>
   <div class="container">
     <div class="row">
-
-      <div class="col-md-8 col-md-offset-2">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-8">
-              <h1>{{$article->title}}</h1>
-              <p class="lead">
-                by <a href="{{route("user.profil",$article->user->id)}}">{{$article->user->name}}</a>
-              </p>
-              <hr>
-              <p>Created: {{$article->created_at}}</p>
-              @if($article->img)
-                <hr>
-                <img src="{{$article->img}}" style="width : 500px; height : auto;" alt="img-article">
-              @endif
-              <hr>
+    <div class="col-md-12">
+      <h1>{{$article->title}}</h1>
+        <p>Created: {{$article->created_at}}</p>
+    </div>
+    </div>
+      <div class="row">
+      <div class="col-md-8">
+        @if($article->img)
+          <img src="{{$article->img}}" class="img-responsive" alt="img-article">
+        @endif
+      </div>
+      <div class="col-md-4">
               <p>{{$article->content}}</p>
               @if ( Auth::check())
                 <hr>
@@ -93,6 +89,7 @@
                     @endif
               </div>
             </div>
+      </div>
           @endforeach
           {{ $comments->links() }}
         </div>

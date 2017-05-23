@@ -12,7 +12,7 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 
     <!-- Scripts -->
@@ -24,6 +24,9 @@
 </head>
 <body>
     <div id="app">
+        <div class="container-logo">
+            <a class="" href="{{ url('/') }}"><img class="logo center-block" src="{{URL::asset('/images/logo.svg')}}"></a>
+        </div>
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
@@ -38,7 +41,6 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        <img class="logo" src="{{URL::asset('/images/logo.svg')}}">
                     </a>
                 </div>
 
@@ -52,6 +54,7 @@
                     <ul class="nav navbar-nav">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
+                            <li><a href="{{ url('/') }}">Home</a></li>
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Register</a></li>
                             <li><a href="{{ route('articles.index') }}">Articles</a></li>

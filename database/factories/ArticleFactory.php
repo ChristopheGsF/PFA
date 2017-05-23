@@ -16,7 +16,7 @@ $factory->define(App\Article::class, function (Faker\Generator $faker) {
     return [
       'title' => $faker->sentence($nbWords = 6, $variableNbWords = true),
       'content' => $faker->text,
-      'img' => $faker->imageUrl($width = 400, $height = 200),
+      'img' => $faker->imageUrl($width = 1000, $height = 500),
       'user_id' => function () {
             return factory(App\User::class)->create()->id;
         }
