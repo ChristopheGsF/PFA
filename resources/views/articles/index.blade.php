@@ -26,19 +26,47 @@
 
     });
 </script>
-
+<div class="container-carousel">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Carousel indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <!-- Wrapper for carousel items -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <img src="{{URL::asset('/images/img1.jpg')}}" alt="First Slide">
+            </div>
+            <div class="item">
+                <img src="{{URL::asset('/images/img2.jpg')}}" alt="Second Slide">
+            </div>
+            <div class="item">
+                <img src="{{URL::asset('/images/img3.jpg')}}" alt="Third Slide">
+            </div>
+        </div>
+        <!-- Carousel controls -->
+        <a class="carousel-control left" href="#myCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a class="carousel-control right" href="#myCarousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+    </div>
+</div>
 
     <div class="container">
+
         <div class="row">
-          <div class="col-md-2">
-            <div class="list-group select-menu rotate">
+         <!--- <div class="col-md-2">
+          <div class="list-group select-menu rotate">
               <a href="{{ route('articles.create')}}" class="list-group-item"> Create </a>
             </div>
-          </div>
+          </div> ---->
+             @foreach ($articles as $article)
+            <div class="col-md-4">
 
-            <div class="col-md-8 col-md-offset-2">
-                {{ $articles->links() }}
-                @foreach ($articles as $article)
                     <h2>
                         {{$article->title}}
                     </h2>
@@ -48,7 +76,7 @@
                     <p>Created: {{$article->created_at}}</p>
                     <hr>
                     @if ($article->img)
-                    <img src="{{$article->img}}" alt="img-article" style="width : 500px; height : auto;">
+                    <img src="{{$article->img}}" class="img-responsive" alt="img-article" style="width : 500px; height : auto;">
                     <hr>
                     @endif
                     <p>{{$article->content}}</p>
@@ -115,9 +143,11 @@
 
 
                     <hr>
+            </div>
                 @endforeach
                 {{ $articles->links() }}
-            </div>
+
+
         </div>
     </div>
 @endsection
