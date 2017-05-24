@@ -126,7 +126,85 @@
 
         @yield('content')
     </div>
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <a class="" href="{{ url('/') }}"><img class="logo-footer center-block" src="{{URL::asset('/images/logo.svg')}}"></a>
+            </div>
+            <div class="col-md-8 footer-links">
+                <ul>
+                @if (Auth::guest())
+                    <li><a href="{{ url('/') }}">Home</a></li>
+                    <li><a href="{{ route('login') }}">Login</a></li>
+                    <li><a href="{{ route('register') }}">Register</a></li>
+                    <li><a href="{{ route('articles.index') }}">Articles</a></li>
+                    <li><a href="{{ route('contact.create') }}">Contact</a></li>
+                @else
+                    <li>
+                        <a href="{{ route('articles.index') }}">
+                            Articles
+                        </a>
 
+                        <form id="form" action="{{ route('articles.index') }}" method="get" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+                    </li>
+                    <li>
+                        <a href="{{ route('inboxe.index') }}">
+                            Message
+                        </a>
+
+                        <form id="form" action="{{ route('inboxe.index') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+                    </li>
+                    <li>
+                        <a href="{{ route('user.hisprofil') }}">
+                            Profil
+                        </a>
+
+                        <form id="form" action="{{ route('user.hisprofil') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+                    </li>
+                    <li>
+                        <a href="{{ route('contact.create') }}">
+                            Contact
+                        </a>
+
+                        <form id="form" action="{{ route('contact.create') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+                    </li>
+                    @if (Auth::user()->isAdmin)
+                        <li>
+                            <a href="{{ route('admin.index', 1) }}">
+                                Admin
+                            </a>
+
+                            <form id="form" action="{{ route('admin.index', 1) }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
+                        </li>
+                    @endif
+                    <li>
+                        <a href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                            Logout
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+                    </li>
+                @endif
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
     <!-- Scripts -->
     <script src="/js/app.js"></script>
 </body>

@@ -31,3 +31,93 @@ body {overflow-x:hidden;}
 .navbar{
     margin-bottom: 0px;
 }
+
+.container-carousel{
+    margin-bottom: 20px;
+}
+
+.img-article{
+    position: relative;
+    transition: ease-in-out 0.5s;
+
+}
+
+.social-buttons{
+    position: absolute;
+    opacity: 0;
+    top: 80%;
+    left: 72%;
+    transition: ease-in-out 0.5s;
+
+}
+
+.img-article:hover {
+    -webkit-filter: grayscale(100%); /* Safari */
+    filter: grayscale(100%);
+    transition: ease-in-out 0.5s;
+    transform: scale(1.03);
+
+}
+
+.img-article:hover .social-buttons{
+    opacity: 1;
+    transition: ease-in-out 0.5s;
+}
+
+.img-article:hover .like{
+    opacity: 1;
+    transition: ease-in-out 0.5s;
+}
+
+.social-buttons>a{
+    color: #fff;
+}
+
+
+.like{
+    position: absolute;
+    top: 38%;
+    left: 45%;
+    opacity: 0;
+    z-index: 100;
+    width: 50px;
+    height: 50px;
+    background: #fff;
+    transition: ease-in-out 0.5s;
+    border-radius: 6px;
+}
+
+.like:hover{
+    background: #da1f26;
+}
+
+.btn-like{
+    margin: 8px 0 0 5px;
+    background: none;
+    border: 0;
+}
+
+.btn-like:focus{
+    margin: 8px 0 0 5px;
+    background: none;
+    border: 0;
+    outline: 0;
+}
+
+footer{
+    min-height: 100px;
+    background-color: #000;
+}
+
+.footer-links>ul>li{
+    display: inline-block;
+    list-style-type: none;
+    padding: 0px 15px;
+    margin-top: 40px;
+    
+}
+
+.logo-footer{
+    width: 80%;
+    margin-top: 20px;
+}
