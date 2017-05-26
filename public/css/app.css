@@ -114,7 +114,7 @@ footer{
     list-style-type: none;
     padding: 0px 15px;
     margin-top: 40px;
-    
+
 }
 
 .logo-footer{
@@ -122,6 +122,7 @@ footer{
     margin-top: 20px;
 }
 
+<<<<<<< HEAD
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,100,900);
 
 
@@ -302,5 +303,41 @@ small {
 }
 
 
+=======
+.col-image{
+    position: relative;
+    width: 100%;
+}
+
+.text-header{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    color: #fff;
+    font-size: 30px;
+    text-transform: uppercase;
+    background: rgba(0, 0, 0, 0.80);
+    padding: 15px;
+}
+
+.text-release{
+    position: absolute;
+    top: 65%;
+    left: 0;
+    color: #fff;
+    font-size: 30px;
+    text-transform: uppercase;
+    background: rgba(0, 0, 0, 0.80);
+    padding: 15px;
+}
+
+.article-text{
+    padding: 50px;
+    font-size: 20px;
+    text-align: justify;
+}
+
+.brand_img{
+>>>>>>> 068a3f0f8a9a682a647458b519ae1cc0d0a5450b
 
 }

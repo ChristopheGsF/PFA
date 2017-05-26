@@ -22,6 +22,77 @@
             @endif
           </div>
         </div>
+
+        <!-- Text input-->
+
+        <div class="form-group{{ $errors->has('brand') ? ' has-error' : '' }}">
+          <label class="col-md-4 control-label">Brand</label>
+          <div class="col-md-4 inputGroupContainer">
+            <input  name="brand" placeholder="Brand" class="form-control" value="{{ old('brand') }}"  type="text">
+            @if ($errors->has('brand'))
+              <span class="help-block">
+                    <strong>{{ $errors->first('brand') }}</strong>
+                </span>
+            @endif
+          </div>
+        </div>
+
+        <!-- Text input-->
+
+        <div class="form-group{{ $errors->has('model') ? ' has-error' : '' }}">
+          <label class="col-md-4 control-label">Model</label>
+          <div class="col-md-4 inputGroupContainer">
+            <input  name="model" placeholder="Model" class="form-control" value="{{ old('model') }}"  type="text">
+            @if ($errors->has('model'))
+              <span class="help-block">
+                    <strong>{{ $errors->first('model') }}</strong>
+                </span>
+            @endif
+          </div>
+        </div>
+
+        <!-- Text input-->
+
+        <div class="form-group{{ $errors->has('price') ? ' has-error' : '' }}">
+          <label class="col-md-4 control-label">Price</label>
+          <div class="col-md-4 inputGroupContainer">
+            <input  name="price" placeholder="Price" class="form-control" value="{{ old('price') }}"  type="text">
+            @if ($errors->has('price'))
+              <span class="help-block">
+                    <strong>{{ $errors->first('price') }}</strong>
+                </span>
+            @endif
+          </div>
+        </div>
+
+        <!-- Text input-->
+
+        <div class="form-group{{ $errors->has('color') ? ' has-error' : '' }}">
+          <label class="col-md-4 control-label">Color</label>
+          <div class="col-md-4 inputGroupContainer">
+            <input  name="color" placeholder="Color" class="form-control" value="{{ old('color') }}"  type="text">
+            @if ($errors->has('color'))
+              <span class="help-block">
+                    <strong>{{ $errors->first('color') }}</strong>
+                </span>
+            @endif
+          </div>
+        </div>
+
+        <!-- Text input-->
+
+        <div class="form-group{{ $errors->has('release') ? ' has-error' : '' }}">
+          <label class="col-md-4 control-label">Release</label>
+          <div class="col-md-4 inputGroupContainer">
+            <input  name="release" placeholder="Release" class="form-control" value="{{ old('release') }}"  type="text">
+            @if ($errors->has('release'))
+              <span class="help-block">
+                    <strong>{{ $errors->first('release') }}</strong>
+                </span>
+            @endif
+          </div>
+        </div>
+
         <!-- Text area -->
 
         <div class="form-group{{ $errors->has('content') ? ' has-error' : '' }}">
@@ -42,6 +113,13 @@
           <label class="col-md-4 control-label">Image</label>
           <div class="col-md-4 inputGroupContainer">
             <input name="image" type="file">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-4 control-label">Image Brand</label>
+          <div class="col-md-4 inputGroupContainer">
+            <input name="image_brand" type="file">
           </div>
         </div>
 

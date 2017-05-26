@@ -22,19 +22,35 @@
   </script>
   <div class="container">
     <div class="row">
-    <div class="col-md-12">
-      <h1>{{$article->title}}</h1>
-        <p>Created: {{$article->created_at}}</p>
-    </div>
+      <div class="col-md-12">
+        <div class="col-image">
+          @if($article->img)
+            <img src="{{ asset($article->img) }}" class="img-responsive" alt="img-article" />
+          @endif
+        <h2 class="text-header">{{$article->title}}</h2>
+          <h2 class="text-release">{{$article->created_at}}</h2>
+        </div>
+      </div>
     </div>
       <div class="row">
-      <div class="col-md-8">
-        @if($article->img)
-          <img src="{{$article->img}}" class="img-responsive" alt="img-article">
-        @endif
+      <div class="col-md-12">
+              <p class="article-text">{{$article->content}}</p>
       </div>
+      </div>
+    <div class="row">
       <div class="col-md-4">
-              <p>{{$article->content}}</p>
+        <img src="{{ asset($article->brand_img) }}" class="img-responsive brand_img" alt="img-article" />
+      </div>
+      <div class="col-md-8">
+        <h3>Marque : {{$article->brand}}</h3>
+        <h3>Modèle : {{$article->model}}</h3>
+        <h3>Coloris : {{$article->color}}</h3>
+        <h3>Prix : {{$article->price}}</h3>
+      </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-12">
               @if ( Auth::check())
                 <hr>
 
@@ -89,6 +105,7 @@
                     @endif
               </div>
             </div>
+      </div>
       </div>
           @endforeach
           {{ $comments->links() }}
