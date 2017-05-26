@@ -25,7 +25,7 @@ $(document).ready(function(){
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
+                <div class="panel-heading text-center">Mon profil</div>
 
                 <div class="panel-body">
                     <h1 class="text-center">{{$user->name}}</h1>
@@ -40,9 +40,10 @@ $(document).ready(function(){
                       @if (Auth::user()->id == $user->id)
                         <div class="col-md-6">
                           <div class="col-md-12">
-                            <p>Tu es connecté en tant que : {{$user->name}} !</p>
+
+                            <p>Tu es bien connecté en tant que : {{$user->name}} !</p>
                             <p>Ton email est : {{$user->email}}.</p>
-                            <p>Compte crée le : {{$user->created_at}}.</p>
+                            <p>Ton compte a été crée le : {{$user->created_at}}.</p>
                           </div>
                           <div class="col-md-12">
                             {!! Form::open(
