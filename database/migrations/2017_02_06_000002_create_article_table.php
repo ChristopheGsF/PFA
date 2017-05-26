@@ -16,7 +16,13 @@ class CreateArticleTable extends Migration
       Schema::create('articles', function (Blueprint $table) {
           $table->increments('id');
           $table->string('title');
-          $table->string('img')->nullable();
+          $table->string('brand');
+          $table->string('model');
+          $table->string('price');
+          $table->string('color');
+          $table->string('release');
+          $table->string('img');
+          $table->string('brand_img'));
           $table->text('content');
           $table->timestamps();
           $table->integer('user_id')->unsigned();
