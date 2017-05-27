@@ -11,6 +11,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
+    <link href='https://fonts.googleapis.com/css?family=Lato'>
     <link href="/css/app.css" rel="stylesheet">
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
@@ -45,10 +46,7 @@
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                        &nbsp;
-                    </ul>
+
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav">
@@ -211,6 +209,13 @@
                     </li>
                 @endif
                 </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row row_credits">
+            <div class="col-md-12">
+                <h5 class="text-center credits">PERFECT KICKS - ALL RIGHTS RESERVED</h5>
             </div>
         </div>
     </div>
