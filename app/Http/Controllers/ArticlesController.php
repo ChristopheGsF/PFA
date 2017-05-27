@@ -73,8 +73,11 @@ class ArticlesController extends Controller
         }
         $article = new Article;
         $user_id = Auth::user()->id;
-        $articles = Article::all()->last()->id;
-        $articles +=1;
+        if (empty(Article::all()))
+          $articles = Article::all()->last()->id;
+        else
+          $articles = 0;
+        $articles += 1;
         if (Input::hasFile('image')) {
           $imageName = 'Article_image_'. $articles .'_utilisateur_numero_' . $user_id . '.' .
           $request->file('image')->getClientOriginalExtension();
@@ -201,28 +204,28 @@ class ArticlesController extends Controller
     }
 
     public function like(Request $request, $id)
-    {
-        $article = Article::find($id);
-        $existing_like = Like::all()->where('article_id', $article->id)->where('user_id', Auth::id())->first();
-        if (is_null($existing_like)) {
-          $like = new Like;
-          $like->article_id = $article->id;
-          $like->user_id =  Auth::user()->id;
-          $like->save();
-          return redirect('articles');
-        }
-        else {
-          return redirect('articles');
-        }
+{
+    $article = Article::find($id);
+    $existing_like = Like::all()->where('article_id', $article->id)->where('user_id', Auth::id())->first();
+    if (is_null($existing_like)) {
+      $like = new Like;
+      $like->article_id = $article->id;
+      $like->user_id =  Auth::user()->id;
+      $like->save();
+      return redirect('articles');
     }
+    else {
+      return redirect('articles');
+    }
+}
 
-    public function delete_like($id)
-    {
-        $like = Like::find($id);
-        if ($like->user_id != Auth::user()->id)
-            if (!Auth::user()->isAdmin)
-              return "error";
-        $like->delete();
-        return redirect('articles');
-    }
+public function delete_like($id)
+{
+    $like = Like::find($id);
+    if ($like->user_id != Auth::user()->id)
+        if (!Auth::user()->isAdmin)
+          return "error";
+    $like->delete();
+    return redirect('articles');
+}
 }

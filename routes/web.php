@@ -46,6 +46,16 @@ Route::group(['prefix' => 'articles'], function () {
   Route::post('/{id}/delete_like', ['as' => 'articles.delete_like', 'uses' => "ArticlesController@delete_like", 'middleware' => 'auth']);
 });
 
+Route::group(['prefix' => 'articleuser'], function () {
+  Route::get('/',['as' => 'articleuser.index', 'uses' => "ArticleUserController@index"]);
+  Route::get('/create',['as' => 'articleuser.create', 'uses' => "ArticleUserController@create", 'middleware' => 'auth']);
+  Route::post('/store',['as' => 'articleuser.store', 'uses' => "ArticleUserController@store", 'middleware' => 'auth']);
+  Route::get('/{id}/show', ['as' => 'articleuser.show', 'uses' => "ArticleUserController@show"]);
+  Route::get('/{id}/edit', ['as' => 'articleuser.edit', 'uses' =>"ArticleUserController@edit", 'middleware' => 'auth']);
+  Route::post('/{id}/update',['as' => 'articleuser.update', 'uses' => "ArticleUserController@update", 'middleware' => 'auth']);
+  Route::post('/{id}/delete', ['as' => 'articleuser.delete', 'uses' => "ArticleUserController@destroy", 'middleware' => 'auth']);
+});
+
 Route::group(['prefix' => 'user'], function () {
   Route::get('/', ['as' => 'user.hisprofil', 'uses' => "UserController@index", 'middleware' => 'auth']);
   Route::post('/edit_img', ['as' => 'user.edit_img', 'uses' => "UserController@edit_img", 'middleware' => 'auth']);
