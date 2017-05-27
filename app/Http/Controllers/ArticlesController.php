@@ -21,7 +21,7 @@ class ArticlesController extends Controller
     */
     public function index()
     {
-        $articles = Article::Paginate(3);
+        $articles = Article::Paginate(9);
         $likes = Like::all();
         $articles->withPath('articles');
         return view("articles.index", ['articles' => $articles, 'likes' => $likes]);

@@ -28,8 +28,8 @@ Route::group(['prefix' => 'inbox', 'middleware' => 'auth'], function () {
 });
 
 
-Route::get('/',['as' => 'index', 'uses' => "ArticlesController@index"]);
-Route::get('/home',['as' => 'index', 'uses' => "ArticlesController@index"]);
+Route::get('/',['as' => 'index', 'uses' => "HomeController@index"]);
+Route::get('/home',['as' => 'index', 'uses' => "HomeController@index"]);
 
 Route::group(['prefix' => 'articles'], function () {
   Route::get('/',['as' => 'articles.index', 'uses' => "ArticlesController@index"]);
