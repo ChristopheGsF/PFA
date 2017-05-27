@@ -100,7 +100,7 @@
                         </a>
                     </div>
                 </div>
-                    <a href="{{ route('articles.show', ['id' => $article->id]) }}">
+                    <a class="article-title-link" href="{{ route('articles.show', ['id' => $article->id]) }}">
                         <h2 class="article-title text-center">
                             {{$article->title}}
                         </h2>
@@ -108,7 +108,7 @@
 
                     <p class="text-center"> <span class="glyphicon glyphicon-time"></span> {{$article->release}}</p>
 
-                    <button class="btn-details">Détails</button>
+                <a href="{{ route('articles.show', ['id' => $article->id]) }}" style="text-decoration: none;"><button  class="btn-details center-block">Détails</button></a>
 
                     @foreach ($likes as $like)
                         @if ($like->user_id == $like->user->id && $like->article_id == $article->id)

@@ -33,22 +33,24 @@
             </p>
 
             <div class="form-group">
-                <div class="col-md-6 col-md-offset-4">
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
-                        </label>
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-md-6 col-md-offset-4">
+                <div class="col-md-5 col-md-offset-4">
                     <a class="btn btn-link" href="{{ route('password.request') }}">
                         <label>Forgot Your Password?</label>
                     </a>
                 </div>
             </div>
+
+            <div class="form-group">
+                <div class="col-md-6 col-md-offset-4">
+                    <div class="checkbox ">
+                        <label>
+                            <input class="checkbox_remember" type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+
 
 
             <div class="container">
@@ -67,7 +69,7 @@
                 <div class="col-md-6 cold">
                     <form action='{{route('articles.index')}}' method="get">
                         <button>
-                            <img src="{{URL::asset('/images/back.png')}}"width="100px" height="65px" class="back">
+                            <img src="{{URL::asset('/images/back.png')}}" class="back">
                             <small>Retour</small>
                         </button>
                     </form>

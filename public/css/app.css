@@ -381,6 +381,17 @@ small {
 
 .article-title{
     font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+}
+
+.article-title-link{
+    color: #000000;
+    text-decoration: none;
+}
+
+.article-title-link:hover{
+    color: #000000;
+    text-decoration: none;
 }
 
 .row_desc{
@@ -450,12 +461,34 @@ small {
     border-radius: 0px;
     font-family: 'Montserrat', sans-serif;
     color: #000000;
-    font-size: 20px;
-    padding: 10px 20px 10px 20px;
-    border: solid #DA1F26 4px;
+    font-size: 15px;
+    padding: 5px 15px;
+    border: solid #000000 4px;
     text-decoration: none;
+    transition: ease-in-out 0.5s;
+
 }
 
 .btn-details:hover {
     text-decoration: none;
+    border: solid #da1f26 4px;
+    color: #da1f26;
+    transition: ease-in-out 0.5s;
+}
+
+.back{
+    width: 80px;
+    height: 50px;
+}
+
+.checkbox_remember{
+    margin-top: 15px!important;
+}
+
+.btn-link{
+    color: #fff;
+}
+
+.btn-link:hover{
+    color: #b7b7b7;
 }
