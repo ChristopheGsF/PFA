@@ -282,7 +282,7 @@ input:required:invalid {
 }
 
 .send-icn {
-    fill: rgb(0, 0, 0)
+    fill: rgb(255, 255, 255)
 }
 
 
@@ -303,7 +303,7 @@ small {
 }
 
 
-=======
+
 .col-image{
     position: relative;
     width: 100%;
