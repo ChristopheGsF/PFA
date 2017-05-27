@@ -46,10 +46,7 @@
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                        &nbsp;
-                    </ul>
+
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav">
@@ -202,6 +199,13 @@
                     </li>
                 @endif
                 </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row row_credits">
+            <div class="col-md-12">
+                <h5 class="text-center credits">PERFECT KICKS - ALL RIGHTS RESERVED</h5>
             </div>
         </div>
     </div>

@@ -37,13 +37,13 @@
         <!-- Wrapper for carousel items -->
         <div class="carousel-inner">
             <div class="item active">
-                <img src="{{URL::asset('/images/img1.jpg')}}" alt="First Slide">
+                <img class="img-responsive" src="{{URL::asset('/images/carousel1.jpg')}}" alt="First Slide">
             </div>
             <div class="item">
-                <img src="{{URL::asset('/images/img2.jpg')}}" alt="Second Slide">
+                <img class="img-responsive" src="{{URL::asset('/images/carousel2.jpg')}}" alt="Second Slide">
             </div>
             <div class="item">
-                <img src="{{URL::asset('/images/img3.jpg')}}" alt="Third Slide">
+                <img class="img-responsive" src="{{URL::asset('/images/carousel3.jpg')}}" alt="Third Slide">
             </div>
         </div>
         <!-- Carousel controls -->
@@ -57,6 +57,11 @@
 </div>
 
     <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="text-center release_text">Dernières sorties</h3>
+            </div>
+        </div>
 
         <div class="row">
          <!--- <div class="col-md-2">
@@ -101,7 +106,9 @@
                         </h2>
                     </a>
 
-                    <p class="text-center">Created: {{$article->created_at}}</p>
+                    <p class="text-center"> <span class="glyphicon glyphicon-time"></span> {{$article->release}}</p>
+
+                    <button class="btn-details">Détails</button>
 
                     @foreach ($likes as $like)
                         @if ($like->user_id == $like->user->id && $like->article_id == $article->id)
@@ -118,17 +125,10 @@
                         @endif
                     @endforeach
 
-
-
-
-                        
-
-
-
                     <hr>
             </div>
                 @endforeach
-                {{ $articles->links() }}
+             {{ $articles->links() }}
 
 
         </div>
