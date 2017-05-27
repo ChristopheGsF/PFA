@@ -158,3 +158,32 @@ footer{
 .brand_img{
 
 }
+
+.row_desc{
+    padding: 40px;
+    border: 5px solid #da1f26;
+}
+
+.redhr{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 0;
+    border-top: 1px solid #da1f26;
+}
+
+.details{
+    margin-top:20px;
+    margin-bottom: 20px;
+}
+
+.btn_edit{
+    margin-bottom: 5px;
+}
+
+.btn_edit:hover{
+    background: #da1f26;
+}
+
+.btn_delete:hover{
+    background: #da1f26;
+}
