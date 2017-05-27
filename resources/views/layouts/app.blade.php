@@ -56,17 +56,27 @@
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Register</a></li>
                             <li><a href="{{ route('articles.index') }}">Articles</a></li>
+                            <li><a href="{{ route('articleuser.index') }}">Occasions</a></li>
                             <li><a href="{{ route('contact.create') }}">Contact</a></li>
                         @else
-                                    <li>
-                                        <a href="{{ route('articles.index') }}">
-                                            Articles
-                                        </a>
+                          <li>
+                              <a href="{{ route('articles.index') }}">
+                                  Articles
+                              </a>
 
-                                        <form id="form" action="{{ route('articles.index') }}" method="get" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
+                              <form id="form" action="{{ route('articles.index') }}" method="get" style="display: none;">
+                                  {{ csrf_field() }}
+                              </form>
+                          </li>
+                          <li>
+                              <a href="{{ route('articleuser.index') }}">
+                                  Occasions
+                              </a>
+
+                              <form id="form" action="{{ route('articleuser.index') }}" method="get" style="display: none;">
+                                  {{ csrf_field() }}
+                              </form>
+                          </li>
                                     <li>
                                         <a href="{{ route('inboxe.index') }}">
                                             Message
