@@ -42,7 +42,6 @@ class ArticleUserController extends Controller
   */
   public function store(Request $request)
   {
-<<<<<<< HEAD
     $validator = Validator::make($request->all(), [
       'brand' => 'required',
       'model' => 'required',
@@ -91,59 +90,6 @@ class ArticleUserController extends Controller
     $article->save();
     $request->session()->flash('alert-success', 'Article was successful created!');
     return redirect(route('articleuser.index'));
-=======
-
-      $validator = Validator::make($request->all(), [
-        'brand' => 'required',
-        'model' => 'required',
-        'size' => 'required',
-        'price' => 'required',
-        'color' => 'required',
-        'release' => 'required',
-         'content' => 'required',
-     ]);
-     if (Input::hasFile('image') && (strpos("jpgpng", $request->file('image')->getClientOriginalExtension()) === false)) {
-         $request->session()->flash('alert-danger', 'Image bad extension ! (only jpg or png)');
-         return redirect('articleuser/create')
-                     ->withErrors($validator)
-                     ->withInput();
-     }
-     elseif ($validator->fails()) {
-         return redirect('articleuser/create')
-                     ->withErrors($validator)
-                     ->withInput();
-     }
-      $article = new ArticleUser;
-      $user_id = Auth::user()->id;
-      if (empty(ArticleUser::all())){
-        $articles = ArticleUser::all()->last()->id;
-      }
-      else
-        $articles = 0;
-      $articles += 1;
-      if (Input::hasFile('image')) {
-        $imageName = 'Article_image_'. $articles .'_utilisateur_numero_' . $user_id . '.' .
-        $request->file('image')->getClientOriginalExtension();
-        $requete_nom_image = $request->file('image')->move(
-          base_path() . '/public/images/catalog/', $imageName
-        );
-        $article->img = '/images/catalog/'. $imageName;
-      }
-      $article->content = $request->content;
-      $article->brand = $request->brand;
-      $article->release = $request->release;
-      $article->model = $request->model;
-      $article->price = $request->price;
-      $article->size = $request->size;
-      $article->color = $request->color;
-      $article->brand = $request->brand;
-      $article->user_id =  Auth::user()->id;
-      $article->brand_img = '/images/brand/'. $request->brand .'.png';
-      $article->save();
-      $request->session()->flash('alert-success', 'Article was successful created!');
-      return redirect(route('articleuser.index'));
-
->>>>>>> deb7a56a684d533576e40ff9a5060e365dcac495
   }
 
   /**
