@@ -15,6 +15,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'is.admin'], function () {
   Route::get('/{id}',['as' => 'admin.index', 'uses' => "AdminController@index"]);
   Route::post('/delete/{id}', ['as' => 'admin.delete', 'uses' => "AdminController@destroy"]);
   Route::post('/edit/{id}', ['as' => 'admin.edit', 'uses' => "AdminController@edit"]);
+  Route::post('/edit_article/{id}', ['as' => 'admin.edit_article', 'uses' => "AdminController@edit_article"]);
   Route::post('/delete_contact/{id}', ['as' => 'admin.delete_contact', 'uses' => "AdminController@destroy_contact"]);
   Route::post('/show/{id}', ['as' => 'admin.show', 'uses' => "AdminController@show"]);
 });
@@ -33,12 +34,12 @@ Route::get('/home',['as' => 'index', 'uses' => "HomeController@index"]);
 
 Route::group(['prefix' => 'articles'], function () {
   Route::get('/',['as' => 'articles.index', 'uses' => "ArticlesController@index"]);
-  Route::get('/create',['as' => 'articles.create', 'uses' => "ArticlesController@create", 'middleware' => 'auth']);
-  Route::post('/store',['as' => 'articles.store', 'uses' => "ArticlesController@store", 'middleware' => 'auth']);
+  Route::get('/create',['as' => 'articles.create', 'uses' => "ArticlesController@create", 'middleware' => 'is.admin']);
+  Route::post('/store',['as' => 'articles.store', 'uses' => "ArticlesController@store", 'middleware' => 'is.admin']);
   Route::get('/{id}/show', ['as' => 'articles.show', 'uses' => "ArticlesController@show"]);
-  Route::get('/{id}/edit', ['as' => 'articles.edit', 'uses' =>"ArticlesController@edit", 'middleware' => 'auth']);
-  Route::post('/{id}/update',['as' => 'articles.update', 'uses' => "ArticlesController@update", 'middleware' => 'auth']);
-  Route::post('/{id}/delete', ['as' => 'articles.delete', 'uses' => "ArticlesController@destroy", 'middleware' => 'auth']);
+  Route::get('/{id}/edit', ['as' => 'articles.edit', 'uses' =>"ArticlesController@edit", 'middleware' => 'is.admin']);
+  Route::post('/{id}/update',['as' => 'articles.update', 'uses' => "ArticlesController@update", 'middleware' => 'is.admin']);
+  Route::post('/{id}/delete', ['as' => 'articles.delete', 'uses' => "ArticlesController@destroy", 'middleware' => 'is.admin']);
   Route::post('/{id}/comment/store',['as' => 'comments.store', 'uses' => "CommentaireController@store", 'middleware' => 'auth']);
   Route::post('/{id}/comment/update',['as' => 'comments.update', 'uses' => "CommentaireController@update", 'middleware' => 'auth']);
   Route::post('/{id}/comment/delete', ['as' => 'comments.delete', 'uses' => "CommentaireController@destroy", 'middleware' => 'auth']);

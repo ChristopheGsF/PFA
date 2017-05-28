@@ -53,7 +53,7 @@
         <div class="form-group{{ $errors->has('size') ? ' has-error' : '' }}">
           <label class="col-md-4 control-label">Size</label>
           <div class="col-md-4 inputGroupContainer">
-            <input  name="size" placeholder="Size" class="form-control" value="{{ old('model') }}"  type="text">
+            <input  name="size" placeholder="Size" class="form-control" value="{{ old('size') }}"  type="text">
             @if ($errors->has('size'))
               <span class="help-block">
                     <strong>{{ $errors->first('size   ') }}</strong>
