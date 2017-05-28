@@ -33,26 +33,23 @@
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
             <li data-target="#myCarousel" data-slide-to="1"></li>
             <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>
         </ol>
         <!-- Wrapper for carousel items -->
         <div class="carousel-inner">
+
             <div class="item active">
                 <img class="img-responsive" src="{{URL::asset('/images/carousel1.jpg')}}" alt="First Slide">
             </div>
+
+            @foreach ($articles as $article)
             <div class="item">
-                <img class="img-responsive" src="{{URL::asset('/images/carousel2.jpg')}}" alt="Second Slide">
+                <a href="{{ route('articles.show', ['id' => $article->id]) }}"><img src="{{$article->img}}" class="img-responsive" alt="img-article"></a>
+                <h2 class="caption-title">{{$article->title}}</h2>
+                <h2 class="caption-release">{{$article->release}}</h2>
             </div>
-            <div class="item">
-                <img class="img-responsive" src="{{URL::asset('/images/carousel3.jpg')}}" alt="Third Slide">
-            </div>
+            @endforeach
         </div>
-        <!-- Carousel controls -->
-        <a class="carousel-control left" href="#myCarousel" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left"></span>
-        </a>
-        <a class="carousel-control right" href="#myCarousel" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right"></span>
-        </a>
     </div>
 </div>
 
@@ -138,10 +135,12 @@
                     @endforeach --->
 
                     <hr>
+
             </div>
                 @endforeach
-             {{ $articles->links() }}
 
+             <a class="plus_link" href="{{ route('articles.index')}}"><button  class="btn-plus center-block"><span class="plus glyphicon glyphicon-plus"></span>
+             </a>
 
         </div>
     </div>
