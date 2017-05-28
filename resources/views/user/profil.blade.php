@@ -21,6 +21,90 @@ $(document).ready(function(){
               });
 });
 </script>
+<script>
+    $(document).ready(function(){
+        $("#btn-edit-profil").click(function(){
+            $("#profil_edition").slideToggle(300);
+        });
+    });
+</script>
+
+<section class="section-profil">
+<div class="container profil">
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="text-center occasion_text">Profil</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 text-center">
+            @if ($user->img)
+                <img src="{{$user->img}}" alt="img-article" class="imgpro">
+            @else
+                <div class="col-md-6">
+                    <p>Cet(te) utilisateur n'a pas d'image de profil pour l'instant</p>
+                </div>
+            @endif
+
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-12 informations">
+            <h2>{{$user->name}}</h2>
+            <p> {{$user->email}}</p>
+            <p><strong>Membre depuis le</strong> <br> {{$user->created_at}}</p>
+        </div>
+
+
+    </div>
+    <div class="row row_button_edit">
+        <a href="#" id="btn-edit-profil" class="btn btn-default center-block link_add"><span class="glyphicon glyphicon-pencil"></span> Edition profil</a>
+    </div>
+    <div id="profil_edition">
+        {!! Form::open(
+                                array(
+                                    'route' => 'user.edit_img',
+                                    'class' => 'form',
+                                    'novalidate' => 'novalidate',
+                                    'files' => true)) !!}
+
+        {!! Form::label("Changer votre image de profil") !!}
+        {!! Form::file('image', null) !!}
+        {!! Form::submit('Télécharger une image !') !!}
+        {!! Form::close() !!}
+    </div>
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -28,7 +112,7 @@ $(document).ready(function(){
                 <div class="panel-heading text-center">Mon profil</div>
 
                 <div class="panel-body">
-                    <h1 class="text-center">{{$user->name}}</h1>
+
                     @if ($user->img)
                       <img src="{{$user->img}}" style="width : 200px; height : auto; float:left;" alt="img-article">
                     @else
@@ -41,9 +125,9 @@ $(document).ready(function(){
                         <div class="col-md-6">
                           <div class="col-md-12">
 
-                            <p>Tu es bien connecté en tant que : {{$user->name}} !</p>
+                            <p>Tu es bien connecté en tant que : {{$user->name}}</p>
                             <p>Ton email est : {{$user->email}}.</p>
-                            <p>Ton compte a été crée le : {{$user->created_at}}.</p>
+                            <p>Ton compte a été crée le : {{$user->created_at}}</p>
                           </div>
                           <div class="col-md-12">
                             {!! Form::open(
@@ -137,24 +221,16 @@ $(document).ready(function(){
 
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <table class="table table-hover" id="like">
-                <thead>
-                <tr>
-                    <td> Titre </td>
-                </tr>
-                </thead>
-                <tbody>
+
                 @foreach ($likes as $like)
                 @foreach ($posts as $post)
                     @if( $like->article_id == $post->id)
-                    <tr>
-                        <td> <a href="{{ route('articles.show', ['id' => $post->id]) }}"><img src="{{$post->img}}" class="img-responsive" alt="img-article"></a>  </td>
-                    </tr>
+               <a href="{{ route('articles.show', ['id' => $post->id]) }}"><img src="{{$post->img}}" class="img-responsive" alt="img-article"></a>
+               {{$post->title}}
                     @endif
                 @endforeach
                 @endforeach
-                </tbody>
-            </table>
+
             {{ $articles->links() }}
         </div>
     </div>
