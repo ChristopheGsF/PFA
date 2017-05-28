@@ -34,7 +34,6 @@
         </div>
         <div class="row">
             <a href="{{ route('articleuser.create')}}" class="btn btn-default center-block link_add"><span class="glyphicon glyphicon-plus"></span> Ajouter une annonce</a>
-            </div>
         </div>
 
         <div class="row">
@@ -76,7 +75,8 @@
           @endif
                 @endforeach
 
-        </div>
+
+    </div>
                 {{ $articles->links() }}
-    
+
 @endsection

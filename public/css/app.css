@@ -342,7 +342,6 @@ button:hover small {
 
 small {
     display: block;
-    opacity: 0;
 }
 
 
@@ -579,4 +578,17 @@ small {
     padding: 5px 5px;
     width: 200px;
     margin-bottom: 20px;
+    border: 4px solid #3a3a3a;
+    border-radius: 0;
+    color: #3a3a3a;
+    font-family: 'Montserrat', sans-serif;
+    background: 0;
+}
+
+.link_add:hover{
+    border: 4px solid #da1f26;
+    border-radius: 0;
+    color: #da1f26;
+    background: 0;
+
 }
