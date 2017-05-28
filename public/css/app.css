@@ -460,10 +460,10 @@ small {
     -moz-border-radius: 0;
     border-radius: 0px;
     font-family: 'Montserrat', sans-serif;
-    color: #000000;
+    color: #3a3a3a;
     font-size: 15px;
     padding: 5px 15px;
-    border: solid #000000 4px;
+    border: solid #3a3a3a 4px;
     text-decoration: none;
     transition: ease-in-out 0.5s;
 
@@ -491,4 +491,64 @@ small {
 
 .btn-link:hover{
     color: #b7b7b7;
+}
+
+.item{
+    position: relative;
+}
+
+.caption-title{
+    position: absolute;
+    top: 30%;
+    left: 20%;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 42px;
+}
+
+.caption-release{
+    position: absolute;
+    top: 40%;
+    left: 20%;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 42px;
+    font-weight: 300;
+}
+
+.btn-plus{
+    border: 2px solid #3a3a3a;
+    border-radius: 50%;
+    transition: ease-in-out 0.3s;
+}
+
+
+.plus{
+    padding: 5px;
+    line-height: 1.7;
+    top: 0;
+
+}
+
+.plus_link{
+    text-decoration: none;
+    color: #3a3a3a;
+    transition: ease-in-out 0.3s;
+}
+
+.btn-plus:hover{
+    border: 2px solid #da1f26;
+    border-radius: 50%;
+    transition: ease-in-out 0.3s;
+}
+
+
+.plus_link:hover{
+    text-decoration: none;
+    color: #da1f26;
+    transition: ease-in-out 0.3s;
 }

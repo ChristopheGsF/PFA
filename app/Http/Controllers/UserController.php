@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Article;
+use App\Like;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Input;
@@ -16,8 +17,10 @@ class UserController extends Controller
   {
       $articles = User::find(Auth::user()->id)->articles()->simplePaginate(5);
       $user = User::find(Auth::user()->id);
+      $likes = User::find(Auth::user()->id)->likes()->simplePaginate();
+      $posts = Article::all();
 
-      return view("user.profil",['articles' => $articles, 'user' => $user]);
+      return view("user.profil",['articles' => $articles, 'user' => $user, 'likes' => $likes, 'posts' => $posts]);
   }
 
   public function show($id)
