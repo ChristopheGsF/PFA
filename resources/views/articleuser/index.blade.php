@@ -44,6 +44,7 @@
             </div>
           </div> --->
              @foreach ($articles as $article)
+               @if ($article->isGood)
             <div class="col-md-4">
                 <div class="img-article">
                     @if ($article->img)
@@ -72,14 +73,10 @@
                 </a>
             </div>
 
-
-
+          @endif
                 @endforeach
 
         </div>
                 {{ $articles->links() }}
-
-
-        </div>
-    </div>
+    
 @endsection
