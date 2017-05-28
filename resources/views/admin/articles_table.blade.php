@@ -9,7 +9,6 @@
         <tr>
           <td> Titre </td>
           <td> Content </td>
-          <td> By </td>
         </tr>
       </thead>
       <tbody>
@@ -17,7 +16,12 @@
           <tr>
             <td> {{$article->title}} </td>
             <td> {{$article->content}} </td>
-            <td> {{$article->user->name}} </td>
+            <td>
+              <form action='{{ route('articles.edit', ['id' => $article->id]) }}' method="get">
+                <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
+                <button type="submit" class="btn btn-success"> Edit </button>
+              </form>
+            </td>
             <td>
               <form action='{{ route('articles.delete', ['id' => $article->id]) }}' method="post">
                 <input name="_token" type="hidden" value="{{ csrf_token() }}"/>

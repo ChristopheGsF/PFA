@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
 use App\Article;
+use App\ArticleUser;
 use App\Comment;
 use App\Contact;
 
@@ -28,10 +29,15 @@ class AdminController extends Controller
       $comments->withPath('');
       return view("admin.comments_table", ['comments' => $comments]);
     }
-    if ($id == 3) {
+    if ($id == 4) {
       $contacts = Contact::orderBy('contacts.updated_at','DESC')->Paginate(10);
       $contacts->withPath('');
       return view("admin.contacts_table", ['contacts' => $contacts]);
+    }
+    if ($id == 3) {
+      $articles = ArticleUser::orderBy('article_users.isGood','ASC')->Paginate(10);
+      $articles->withPath('');
+      return view("admin.occasion_table", ['articles' => $articles]);
     }
     else{
       $users = User::orderBy('users.updated_at','DESC')->Paginate(10);
@@ -91,6 +97,21 @@ class AdminController extends Controller
       $user->save();
     }
     session()->flash('alert-danger', 'User was successful updated!');
+    return back();
+  }
+
+  public function edit_article($id)
+  {
+    $user = ArticleUser::find($id);
+    if ($user->isGood) {
+        $user->isGood = 0;
+        $user->save();
+    }
+    else {
+      $user->isGood = 1;
+      $user->save();
+    }
+    session()->flash('alert-danger', 'Occasion was successful updated!');
     return back();
   }
 

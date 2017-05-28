@@ -24,6 +24,7 @@ class CreateUsersArticleTable extends Migration
           $table->string('img');
           $table->string('brand_img');
           $table->text('content');
+          $table->boolean('isGood')->default(false);
           $table->timestamps();
           $table->integer('user_id')->unsigned();
           $table->foreign('user_id')->references('id')->on('users');
@@ -36,6 +37,6 @@ class CreateUsersArticleTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('article_user');
+        Schema::dropIfExists('article_users');
     }
 }

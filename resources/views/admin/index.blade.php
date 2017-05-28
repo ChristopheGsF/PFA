@@ -10,7 +10,8 @@
           <a href="{{route("admin.index", ["id" => 0])}}" class="list-group-item ">Users</a>
           <a href="{{route("admin.index", ["id" => 1])}}" class="list-group-item ">Articles</a>
           <a href="{{route("admin.index", ["id" => 2])}}" class="list-group-item ">Comments</a>
-          <a href="{{route("admin.index", ["id" => 3])}}" class="list-group-item ">Tickets</a>
+          <a href="{{route("admin.index", ["id" => 3])}}" class="list-group-item ">Occasions</a>
+          <a href="{{route("admin.index", ["id" => 4])}}" class="list-group-item ">Tickets</a>
         </div>
       </div>
 
