@@ -27,43 +27,56 @@
     });
 </script>
     <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+               <h3 class="text-center occasion_text">Occasions</h3>
+            </div>
+        </div>
+        <div class="row">
+            <a href="{{ route('articleuser.create')}}" class="btn btn-default center-block link_add"><span class="glyphicon glyphicon-plus"></span> Ajouter une annonce</a>
+            </div>
+        </div>
 
         <div class="row">
-         <div class="col-md-2">
+        <!--- <div class="col-md-2">
           <div class="list-group select-menu rotate">
               <a href="{{ route('articleuser.create')}}" class="list-group-item"> Create </a>
             </div>
-          </div>
+          </div> --->
              @foreach ($articles as $article)
             <div class="col-md-4">
                 <div class="img-article">
                     @if ($article->img)
                     <a href="{{ route('articleuser.show', ['id' => $article->id]) }}"><img src="{{$article->img}}" class="img-responsive" alt="img-article"></a>
                     @endif
-                    </div>
-                    <div class="social-buttons">
-                        <a href="https://www.facebook.com/sharer/sharer.php?u&amp;src=sdkpreparse"
-                           target="_blank">
-                            <i class="fa fa-facebook-official" style="font-size : 30px;"></i>
-                        </a>
-                        <a href="https://twitter.com/intent/tweet?url="
-                           target="_blank">
-                            <i class="fa fa-twitter-square" style="font-size : 30px;"></i>
-                        </a>
-                        <a href="https://plus.google.com/share?url="
-                           target="_blank">
-                            <i class="fa fa-google-plus-square" style="font-size : 30px;"></i>
-                        </a>
-                    </div>
                 </div>
-                    <a href="{{ route('articles.show', ['id' => $article->id]) }}">
-                        <h2 class="article-title text-center">
-                            {{$article->title}}
-                        </h2>
+                <div class="social-buttons">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u&amp;src=sdkpreparse"
+                       target="_blank">
+                        <i class="fa fa-facebook-official" style="font-size : 30px;"></i>
                     </a>
-                    <hr>
+                    <a href="https://twitter.com/intent/tweet?url="
+                       target="_blank">
+                        <i class="fa fa-twitter-square" style="font-size : 30px;"></i>
+                    </a>
+                    <a href="https://plus.google.com/share?url="
+                       target="_blank">
+                        <i class="fa fa-google-plus-square" style="font-size : 30px;"></i>
+                    </a>
+                </div>
+                <a href="{{ route('articleuser.show', ['id' => $article->id]) }}">
+                    <h2 class="article-title text-center">
+                        {{$article->brand}} {{$article->model}}
+                    </h2>
+                    <h5 class="text-center">{{$article->price}} €</h5>
+                </a>
             </div>
+
+
+
                 @endforeach
+
+        </div>
                 {{ $articles->links() }}
 
 
