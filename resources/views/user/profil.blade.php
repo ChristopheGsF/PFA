@@ -21,6 +21,87 @@ $(document).ready(function(){
               });
 });
 </script>
+
+<div class="container-fluid profil">
+     <div class="row">
+        <div class="col-md-12 text-center">
+            <h1>Mon Profil</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 text-center">
+            @if ($user->img)
+                <img src="{{$user->img}}" alt="img-article" class="imgpro">
+            @else
+                <div class="col-md-6">
+                    <p>Cet(te) utilisateur n'a pas d'image de profil pour l'instant</p>
+                </div>
+            @endif
+
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-6 informations">
+            <h2>Informations liés au compte</h2>
+            <p>Pseudo: {{$user->name}}</p>
+            <p>Email: {{$user->email}}</p>
+            <p>Date de création du compte: {{$user->created_at}}</p>
+            {!! Form::open(
+                                array(
+                                    'route' => 'user.edit_img',
+                                    'class' => 'form',
+                                    'novalidate' => 'novalidate',
+                                    'files' => true)) !!}
+
+                {!! Form::label("Changer votre image de profil") !!}
+                {!! Form::file('image', null) !!}
+                {!! Form::submit('Télécharger une image !') !!}
+                {!! Form::close() !!}
+        </div>
+
+        <div class="col-md-6 actu">
+            <h2>Actualités</h2>
+            <ul>
+                <li><a>Voir les dernières sorties</a></li>
+                <li><a>Envie d'une occasion ? C'est ici !</a></li>
+                <li><a>Nos réseaux sociaux</a></li>
+            </ul>
+        </div>
+
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -28,7 +109,7 @@ $(document).ready(function(){
                 <div class="panel-heading text-center">Mon profil</div>
 
                 <div class="panel-body">
-                    <h1 class="text-center">{{$user->name}}</h1>
+
                     @if ($user->img)
                       <img src="{{$user->img}}" style="width : 200px; height : auto; float:left;" alt="img-article">
                     @else
@@ -41,9 +122,9 @@ $(document).ready(function(){
                         <div class="col-md-6">
                           <div class="col-md-12">
 
-                            <p>Tu es bien connecté en tant que : {{$user->name}} !</p>
+                            <p>Tu es bien connecté en tant que : {{$user->name}}</p>
                             <p>Ton email est : {{$user->email}}.</p>
-                            <p>Ton compte a été crée le : {{$user->created_at}}.</p>
+                            <p>Ton compte a été crée le : {{$user->created_at}}</p>
                           </div>
                           <div class="col-md-12">
                             {!! Form::open(
