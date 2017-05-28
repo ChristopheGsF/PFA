@@ -492,3 +492,37 @@ small {
 .btn-link:hover{
     color: #b7b7b7;
 }
+
+.profil{
+    font-family: 'Bebas Neue', georgia;
+    font-size: 25px;
+    color: rgb(0, 0, 0);
+    background-color: rgba(59, 68, 21, 0.08);
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+}
+.imgpro{
+    overflow:hidden;
+    -webkit-border-radius:80px;
+    -moz-border-radius:80px;
+    border-radius:80px;
+    width:120px;
+    height:120px;
+}
+
+.informations>h2 {
+    text-align: center;
+    font-size: 40px;
+
+}
+
+.actu {
+    text-align: center;
+    font-size: 40px;
+
+}
+.actu>ul>li {
+    text-align: center;
+    font-size: 40px;
+
+}
