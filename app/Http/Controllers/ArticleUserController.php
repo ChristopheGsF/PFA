@@ -45,8 +45,8 @@ class ArticleUserController extends Controller
     $validator = Validator::make($request->all(), [
       'brand' => 'required',
       'model' => 'required',
-      'size' => 'required|regex:/[0-9]/',
-      'price' => 'required|regex:/[0-9]{3}/',
+      'size' => 'required|regex:/[0-9]{2}/',
+      'price' => 'required|regex:/[0-9]/',
       'color' => 'required',
       'release' => 'required',
       'content' => 'required',
@@ -141,8 +141,8 @@ class ArticleUserController extends Controller
     $validator = Validator::make($request->all(), [
       'brand' => 'required',
       'model' => 'required',
-      'size' => 'required|regex:/[0-9]/',
-      'price' => 'required|regex:/[0-9]{3}/',
+      'size' => 'required|regex:/[0-9]{2}/',
+      'price' => 'required|regex:/[0-9]/',
       'color' => 'required',
       'release' => 'required',
       'content' => 'required',
