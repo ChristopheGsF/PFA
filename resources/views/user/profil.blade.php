@@ -134,5 +134,29 @@ $(document).ready(function(){
           {{ $articles->links() }}
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <table class="table table-hover" id="like">
+                <thead>
+                <tr>
+                    <td> Titre </td>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach ($likes as $like)
+                @foreach ($posts as $post)
+                    @if( $like->article_id == $post->id)
+                    <tr>
+                        <td> <a href="{{ route('articles.show', ['id' => $post->id]) }}"><img src="{{$post->img}}" class="img-responsive" alt="img-article"></a>  </td>
+                    </tr>
+                    @endif
+                @endforeach
+                @endforeach
+                </tbody>
+            </table>
+            {{ $articles->links() }}
+        </div>
+    </div>
 </div>
 @endsection

@@ -66,10 +66,10 @@ class ArticleUserController extends Controller
       $user_id = Auth::user()->id;
       if (empty(ArticleUser::all())){
         $articles = ArticleUser::all()->last()->id;
-        $articles += 1;
       }
       else
         $articles = 0;
+      $articles += 1;
       if (Input::hasFile('image')) {
         $imageName = 'Article_image_'. $articles .'_utilisateur_numero_' . $user_id . '.' .
         $request->file('image')->getClientOriginalExtension();
