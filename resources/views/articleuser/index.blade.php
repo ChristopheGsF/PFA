@@ -64,7 +64,7 @@
                         <i class="fa fa-google-plus-square" style="font-size : 30px;"></i>
                     </a>
                 </div>
-                <a href="{{ route('articleuser.show', ['id' => $article->id]) }}">
+                <a class="article-title-link" href="{{ route('articleuser.show', ['id' => $article->id]) }}">
                     <h2 class="article-title text-center">
                         {{$article->brand}} {{$article->model}}
                     </h2>
@@ -78,5 +78,6 @@
 
     </div>
                 {{ $articles->links() }}
+    </div>
 
 @endsection
