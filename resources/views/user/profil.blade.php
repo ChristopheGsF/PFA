@@ -199,11 +199,10 @@ $(document).ready(function(){
                 <a href="{{ route('articles.index') }}/{{$article->id}}/show"><img src="{{$article->img}}" class="img-responsive img-thumbnail center-block" alt="img-article"></a>
             </div>
             <div class="col-md-2">
-<<<<<<< HEAD
+
                 <a href="{{ route('articleuser.index') }}/{{$article->id}}/show"><h3>{{$article->brand}}</h3></a>
-=======
-                <a class="link_annonce" href="{{ route('articles.index') }}/{{$article->id}}/show"><h3>{{$article->brand}}</h3></a>
->>>>>>> 6d659f03c1b04edd1ac6f501fc250d61e2ea5748
+              <a class="link_annonce" href="{{ route('articles.index') }}/{{$article->id}}/show"><h3>{{$article->brand}}</h3></a>
+
                 <h5><strong>Modèle :</strong> {{$article->model}}</h5>
                 <h5><strong>Prix :</strong> {{$article->price}}</h5>
                 <h5><strong>Taille :</strong> {{$article->size}}</h5>

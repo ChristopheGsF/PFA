@@ -139,9 +139,10 @@
             </div>
                 @endforeach
 
-             <a class="plus_link" href="{{ route('articles.index')}}"><button  class="btn-plus center-block"><span class="plus glyphicon glyphicon-plus"></span>
-             </a>
+
 
         </div>
+        <a class="plus_link" href="{{ route('articles.index')}}"><button  class="btn-plus center-block"><span class="plus glyphicon glyphicon-plus"></span>
+        </a>
     </div>
 @endsection
