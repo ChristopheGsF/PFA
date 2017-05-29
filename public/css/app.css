@@ -410,8 +410,15 @@ small {
     margin-bottom: 20px;
 }
 
+.btn_delete{
+    margin: 0 auto;
+    background: #d9d9d9;
+}
+
 .btn_edit{
-    margin-bottom: 5px;
+    margin: 0 auto;
+    margin-top: 10px;
+    background: #d9d9d9;
 }
 
 .btn_edit:hover{
@@ -497,7 +504,7 @@ small {
     font-family: 'Montserrat', sans-serif;
     font-size: 25px;
     color: rgb(0, 0, 0);
-    background-color: rgba(59, 68, 21, 0.08);
+    background-color: rgb(237, 235, 235);
     font-weight: 300;
     -webkit-font-smoothing: antialiased;
 }
@@ -644,4 +651,40 @@ small {
 
 .row_button_edit{
     margin: 30px 0px;
+}
+
+.section-liked{
+    background: #4b4b4b;
+}
+
+.section-annonces{
+    background: #191919;
+}
+
+.white{
+    color: #fff;
+}
+
+#profil_likes{
+    display: none;
+    padding-bottom: 80px;
+}
+
+#profil_annonces{
+    display: none;
+    padding-bottom: 80px;
+}
+
+.hr-dark{
+    border-color: #3b3b3b;
+}
+
+.article-liked{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    color: #ffffff;
+}
+
+.navbar-toggle{
+    float: none;
 }
