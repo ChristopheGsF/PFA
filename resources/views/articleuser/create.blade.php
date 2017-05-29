@@ -56,7 +56,7 @@
             <input  name="size" placeholder="Size" class="form-control" value="{{ old('size') }}"  type="text">
             @if ($errors->has('size'))
               <span class="help-block">
-                    <strong>{{ $errors->first('size   ') }}</strong>
+                    <strong>{{ $errors->first('size') }}</strong>
                 </span>
             @endif
           </div>

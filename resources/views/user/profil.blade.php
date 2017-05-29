@@ -80,21 +80,62 @@ $(document).ready(function(){
         <a id="btn-edit-profil" class="btn btn-default center-block link_add"><span class="glyphicon glyphicon-pencil"></span> Edition profil</a>
     </div>
     <div id="profil_edition">
-        {!! Form::open(
-                                array(
-                                    'route' => 'user.edit_img',
-                                    'class' => 'form',
-                                    'novalidate' => 'novalidate',
-                                    'files' => true)) !!}
 
-        {!! Form::label("Changer votre image de profil") !!}
-        {!! Form::file('image', null) !!}
-        {!! Form::submit('Télécharger une image !') !!}
-        {!! Form::close() !!}
+      <form class="well form-horizontal" action="{{ route('user.update') }}" method="post" enctype="multipart/form-data" novalidate="novalidate" accept-charset="UTF-8" id="contact_form">
+        <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
+        <fieldset>
+
+          <!-- Form Name -->
+          <legend>Edit profil:</legend>
+
+          <!-- Text input-->
+
+          <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+            <label class="col-md-4 control-label">Name</label>
+            <div class="col-md-4 inputGroupContainer">
+              <input  name="name" placeholder="Name" class="form-control" value="{{$user->name}}"  type="text">
+              @if ($errors->has('name'))
+                <span class="help-block">
+                      <strong>{{ $errors->first('name') }}</strong>
+                  </span>
+              @endif
+            </div>
+          </div>
+
+          <!-- Text input-->
+
+          <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+            <label class="col-md-4 control-label">Email</label>
+            <div class="col-md-4 inputGroupContainer">
+              <input  name="email" placeholder="Email" class="form-control" value="{{ $user->email }}"  type="text">
+              @if ($errors->has('email'))
+                <span class="help-block">
+                      <strong>{{ $errors->first('email') }}</strong>
+                  </span>
+              @endif
+            </div>
+          </div>
+          <!-- Image -->
+
+          <div class="form-group">
+            <label class="col-md-4 control-label">Image</label>
+            <div class="col-md-4 inputGroupContainer">
+              <input name="image" type="file">
+            </div>
+          </div>
+
+          <!-- Button -->
+          <div class="form-group">
+            <label class="col-md-4 control-label"></label>
+            <div class="col-md-4">
+              <button type="submit" class="btn btn-warning" > Send </button>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+
     </div>
 </div>
-
-
 </section>
 
 
@@ -195,18 +236,3 @@ $(document).ready(function(){
     </div>
 </section>
 @endsection
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
