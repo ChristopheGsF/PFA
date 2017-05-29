@@ -605,7 +605,7 @@ small {
 
 .occasion_text {
     font-family: 'Montserrat', sans-serif;
-    font-size: 34px;
+    font-size: 2em;
     color: #000;
     margin-bottom: 40px;
     text-transform: uppercase;
@@ -687,4 +687,73 @@ small {
 
 .navbar-toggle{
     float: none;
+    background: 0;
+    border: 0;
+}
+
+.navbar-toggle .icon-bar {
+    display: block;
+    width: 40px;
+    height: 5px;
+    border-radius: 1px;
+    margin-bottom: 7px;
+}
+
+.footer-mobile-links{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-mobile-links>li{
+    text-align: center;
+    border-bottom: 1px solid #c3c3c3;
+    margin-top: 12px;
+    padding-bottom: 7px;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+}
+
+.footer-mobile-links>li>a{
+    color: #3a3a3a
+}
+.footer-mobile-links>li>a:hover{
+    color: #da1f26
+}
+
+.footer-mobile{
+    background: #fff;
+}
+
+
+@media(max-width:767px){
+    .logo{
+        width: 70%;
+    }
+}
+@media(min-width:768px){}
+@media(min-width:992px){}
+@media(min-width:1200px){}
+
+
+
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+    z-index: 3;
+    color: #fff;
+    background-color: #da1f26;
+    border-color: #da1f26;
+    cursor: default;
+}
+
+
+.pagination>li>a, .pagination>li>span {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    line-height: 1.6;
+    text-decoration: none;
+    color: #3a3a3a;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin-left: -1px;
 }

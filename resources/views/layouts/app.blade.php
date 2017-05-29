@@ -33,11 +33,12 @@
                 <div class="navbar-header">
 
                     <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed center-block visible-xs" data-toggle="collapse" data-target="#app-navbar-collapse">
+                    <button type="button" class="navbar-toggle collapsed center-block visible-xs visible-sm" data-toggle="collapse" data-target="#app-navbar-collapse">
                         <span class="sr-only">Toggle Navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
+                        MENU
                     </button>
 
                     <!-- Branding Image -->
@@ -49,7 +50,7 @@
 
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav">
+                    <ul class="nav navbar-nav hidden-sm">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
                             <li><a href="{{ url('/') }}">Home</a></li>
@@ -133,7 +134,7 @@
 
         @yield('content')
     </div>
-<footer>
+<footer class="footer hidden-xs hidden-sm">
     <div class="container">
         <div class="row">
             <div class="col-md-4">
@@ -230,6 +231,99 @@
         </div>
     </div>
 </footer>
+    <div class="footer-mobile visible-xs visible-sm">
+        <div class="container">
+            <div class="col-md-12">
+                <a class="" href="{{ url('/') }}"><img class="logo-footer center-block" src="{{URL::asset('/images/logo.svg')}}"></a>
+                <ul class="footer-mobile-links">
+                    @if (Auth::guest())
+                        <li><a href="{{ url('/') }}">Home</a></li>
+                        <li><a href="{{ route('login') }}">Login</a></li>
+                        <li><a href="{{ route('register') }}">Register</a></li>
+                        <li><a href="{{ route('articleuser.index') }}">Occasions</a></li>
+                        <li><a href="{{ route('articles.index') }}">Articles</a></li>
+                        <li><a href="{{ route('contact.create') }}">Contact</a></li>
+                    @else
+                        <li>
+                            <a href="{{ route('articles.index') }}">
+                                Articles
+                            </a>
+
+                            <form id="form" action="{{ route('articles.index') }}" method="get" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
+                        </li>
+                        <li>
+                            <a href="{{ route('articleuser.index') }}">
+                                Occasions
+                            </a>
+
+                            <form id="form" action="{{ route('articleuser.index') }}" method="get" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
+                        </li>
+                        <li>
+                            <a href="{{ route('inboxe.index') }}">
+                                Message
+                            </a>
+
+                            <form id="form" action="{{ route('inboxe.index') }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
+                        </li>
+
+                        <li>
+                            <a href="{{ route('user.hisprofil') }}">
+                                Profil
+                            </a>
+
+                            <form id="form" action="{{ route('user.hisprofil') }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
+                        </li>
+                        <li>
+                            <a href="{{ route('contact.create') }}">
+                                Contact
+                            </a>
+
+                            <form id="form" action="{{ route('contact.create') }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
+                        </li>
+                        @if (Auth::user()->isAdmin)
+                            <li>
+                                <a href="{{ route('admin.index', 1) }}">
+                                    Admin
+                                </a>
+
+                                <form id="form" action="{{ route('admin.index', 1) }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
+                            </li>
+                        @endif
+                        <li>
+                            <a href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                                Logout
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
+                        </li>
+                    @endif
+                </ul>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row row_credits">
+                <div class="col-md-12">
+                    <h5 class="text-center credits">PERFECT KICKS - ALL RIGHTS RESERVED</h5>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Scripts -->
     <script src="/js/app.js"></script>
 </body>
