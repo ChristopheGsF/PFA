@@ -31,6 +31,7 @@ $(document).ready(function(){
     $(document).ready(function(){
         $("#btn-profil-like").click(function(){
             $("#profil_likes").slideToggle(300);
+
         });
     });
 
@@ -39,6 +40,8 @@ $(document).ready(function(){
             $("#profil_annonces").slideToggle(300);
         });
     });
+
+
 
 
 </script>
@@ -141,7 +144,7 @@ $(document).ready(function(){
         <div class="col-md-12">
             <h3 class="text-center occasion_text white">LIKES</h3>
         </div>
-        <a class="plus_link" id="btn-profil-like"><button  class="btn-plus center-block"><span class="plus glyphicon glyphicon-plus"></span></button>
+        <a class="plus_link" id="btn-profil-like"><button id="plus" class="btn-plus center-block"><span class="plus glyphicon glyphicon-plus"></span></button>
         </a>
     </div>
     <div id="profil_likes">
@@ -182,10 +185,10 @@ $(document).ready(function(){
                 <div class="col-md-2">
                     <h3>Détails</h3>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-5">
                     <h3>Description</h3>
                 </div>
-                <div class="col-md-1">
+                <div class="col-md-2">
                     <h3>Actions</h3>
                 </div>
             </div>
@@ -193,10 +196,14 @@ $(document).ready(function(){
             @foreach ($articles as $article)
         <div class="row">
             <div class="col-md-3">
-                <img src="{{$article->img}}" class="img-responsive center-block" alt="img-article">
+                <a href="{{ route('articles.index') }}/{{$article->id}}/show"><img src="{{$article->img}}" class="img-responsive img-thumbnail center-block" alt="img-article"></a>
             </div>
             <div class="col-md-2">
+<<<<<<< HEAD
                 <a href="{{ route('articleuser.index') }}/{{$article->id}}/show"><h3>{{$article->brand}}</h3></a>
+=======
+                <a class="link_annonce" href="{{ route('articles.index') }}/{{$article->id}}/show"><h3>{{$article->brand}}</h3></a>
+>>>>>>> 6d659f03c1b04edd1ac6f501fc250d61e2ea5748
                 <h5><strong>Modèle :</strong> {{$article->model}}</h5>
                 <h5><strong>Prix :</strong> {{$article->price}}</h5>
                 <h5><strong>Taille :</strong> {{$article->size}}</h5>

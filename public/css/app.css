@@ -417,7 +417,7 @@ small {
 
 .btn_edit{
     margin: 0 auto;
-    margin-top: 10px;
+    margin-top: 30px;
     background: #d9d9d9;
 }
 
@@ -730,6 +730,10 @@ small {
     .logo{
         width: 70%;
     }
+
+    .btn_edit{
+        margin-top: 10px;
+    }
 }
 @media(min-width:768px){}
 @media(min-width:992px){}
@@ -756,4 +760,14 @@ small {
     background-color: #fff;
     border: 1px solid #ddd;
     margin-left: -1px;
+}
+
+.link_annonce{
+    text-decoration: none;
+    color: #fff;
+}
+
+.link_annonce:hover{
+    text-decoration: none;
+    color: #b5b5b5;
 }
