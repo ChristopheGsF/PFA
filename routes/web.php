@@ -59,7 +59,7 @@ Route::group(['prefix' => 'articleuser'], function () {
 
 Route::group(['prefix' => 'user'], function () {
   Route::get('/', ['as' => 'user.hisprofil', 'uses' => "UserController@index", 'middleware' => 'auth']);
-  Route::post('/edit_img', ['as' => 'user.edit_img', 'uses' => "UserController@edit_img", 'middleware' => 'auth']);
+  Route::post('/update', ['as' => 'user.update', 'uses' => "UserController@update", 'middleware' => 'auth']);
   Route::get('/{id}/show', ['as' => 'user.profil', 'uses' => "UserController@show"]);
 });
 
