@@ -196,7 +196,7 @@ $(document).ready(function(){
                 <img src="{{$article->img}}" class="img-responsive center-block" alt="img-article">
             </div>
             <div class="col-md-2">
-                <a href="{{ route('articles.index') }}/{{$article->id}}/show"><h3>{{$article->brand}}</h3></a>
+                <a href="{{ route('articleuser.index') }}/{{$article->id}}/show"><h3>{{$article->brand}}</h3></a>
                 <h5><strong>Modèle :</strong> {{$article->model}}</h5>
                 <h5><strong>Prix :</strong> {{$article->price}}</h5>
                 <h5><strong>Taille :</strong> {{$article->size}}</h5>
@@ -207,7 +207,7 @@ $(document).ready(function(){
             <div class="col-md-1">
                 @if (Auth::check())
                     @if (Auth::user()->isAdmin == 1 || Auth::user()->id == $article->user_id)
-                        <form action='{{ route('articles.edit', ['id' => $article->id]) }}' method="get">
+                        <form action='{{ route('articleuser.edit', ['id' => $article->id]) }}' method="get">
                             <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
                             <button type="submit" class="btn btn_edit"><span class="plus glyphicon glyphicon-pencil"></span></button>
                         </form>
@@ -216,7 +216,7 @@ $(document).ready(function(){
 
                     @if (Auth::check())
                         @if (Auth::user()->isAdmin == 1 || Auth::user()->id == $article->user_id)
-                            <form action='{{ route('articles.delete', ['id' => $article->id]) }}' method="post">
+                            <form action='{{ route('articleuser.delete', ['id' => $article->id]) }}' method="post">
                                 <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
                                 <button type="submit" class="btn btn_delete"><span class="plus glyphicon glyphicon-trash"></span></button>
                             </form>
