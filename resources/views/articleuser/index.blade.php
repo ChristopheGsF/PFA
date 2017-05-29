@@ -47,7 +47,7 @@
             <div class="col-md-4">
                 <div class="img-article">
                     @if ($article->img)
-                    <a href="{{ route('articleuser.show', ['id' => $article->id]) }}"><img src="{{$article->img}}" class="img-responsive" alt="img-article"></a>
+                    <a href="{{ route('articleuser.show', ['id' => $article->id]) }}"><img src="{{$article->img}}" class="img-responsive center-block" alt="img-article"></a>
                     @endif
                 </div>
                 <div class="social-buttons">

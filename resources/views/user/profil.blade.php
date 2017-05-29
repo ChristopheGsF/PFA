@@ -175,7 +175,7 @@ $(document).ready(function(){
     </div>
     <div id="profil_annonces">
         <div class="container">
-            <div class="row hidden-xs">
+            <div class="row hidden-xs hidden-sm">
                 <div class="col-md-3">
                     <h3>Image</h3>
                 </div>
@@ -202,7 +202,7 @@ $(document).ready(function(){
                 <h5><strong>Taille :</strong> {{$article->size}}</h5>
             </div>
             <div class="col-md-6">
-                {{$article->content}}
+                <p>{{$article->content}}</p>
             </div>
             <div class="col-md-1">
                 @if (Auth::check())
