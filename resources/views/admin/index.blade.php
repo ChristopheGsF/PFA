@@ -5,7 +5,7 @@
     <div class="row">
 
       <div class="col-md-3">
-        <p class="lead">Dashboard</p>
+        <h2>Dashboard</h2>
         <div class="list-group select-menu rotate">
           <a href="{{route("admin.index", ["id" => 0])}}" class="list-group-item ">Users</a>
           <a href="{{route("admin.index", ["id" => 1])}}" class="list-group-item ">Articles</a>
