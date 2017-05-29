@@ -166,6 +166,7 @@ class ArticleUserController extends Controller
     $article->color = $request->color;
     $article->release = $request->release;
     $article->content = $request->content;
+    $article->isGood = 0;
     if (Input::hasFile('image')) {
       $imageName = 'Article_image_'. $article->id .'_utilisateur_numero_' . $user_id . '.' .
       $request->file('image')->getClientOriginalExtension();

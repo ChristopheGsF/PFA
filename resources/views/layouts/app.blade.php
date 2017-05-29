@@ -78,14 +78,15 @@
                                   {{ csrf_field() }}
                               </form>
                           </li>
-                                    <li>
-                                        <a href="/messages">Messages @include('messenger.unread-count')
-                                        </a>
+                          <li>
+                              <a href="{{ route('inboxe.index') }}">
+                                  Message
+                              </a>
 
-                                        <form id="form" action="{{ route('inboxe.index') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
+                              <form id="form" action="{{ route('inboxe.index') }}" method="POST" style="display: none;">
+                                  {{ csrf_field() }}
+                              </form>
+                          </li>
                                     <li>
                                         <a href="{{ route('user.hisprofil') }}">
                                             Profil
