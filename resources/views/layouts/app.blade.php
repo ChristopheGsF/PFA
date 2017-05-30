@@ -140,7 +140,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-                <a class="" href="{{ url('/') }}"><img class="logo-footer center-block" src="{{URL::asset('/images/logo.svg')}}"></a>
+                <a class="" href="{{ url('/') }}"><img class="logo-footer center-block" src="{{URL::asset('/images/logo.png')}}"></a>
             </div>
             <div class="col-md-8 footer-links">
                 <ul>
