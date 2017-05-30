@@ -8,11 +8,12 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Perfect Kicks') }}</title>
 
     <!-- Styles -->
     <link href='https://fonts.googleapis.com/css?family=Lato'>
     <link href="/css/app.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="{{URL::asset('/images/favicon.png')}}" />
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
@@ -26,7 +27,7 @@
 <body>
     <div id="app">
         <div class="container-logo">
-            <a class="" href="{{ url('/') }}"><img class="logo center-block" src="{{URL::asset('/images/logo.svg')}}"></a>
+            <a class="" href="{{ url('/') }}"><img class="logo center-block" src="{{URL::asset('/images/logo.png')}}"></a>
         </div>
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
@@ -235,7 +236,7 @@
     <div class="footer-mobile visible-xs visible-sm">
         <div class="container">
             <div class="col-md-12">
-                <a class="" href="{{ url('/') }}"><img class="logo-footer center-block" src="{{URL::asset('/images/logo.svg')}}"></a>
+                <a class="" href="{{ url('/') }}"><img class="logo-footer center-block" src="{{URL::asset('/images/logo.png')}}"></a>
                 <ul class="footer-mobile-links">
                     @if (Auth::guest())
                         <li><a href="{{ url('/') }}">Home</a></li>
