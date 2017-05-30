@@ -455,7 +455,7 @@ small {
 
 .release_text{
     font-family: 'Montserrat', sans-serif;
-    font-size: 34px;
+    font-size: 2.5em;
     color: #000;
     margin-bottom: 50px;
     text-transform: uppercase;
@@ -780,10 +780,17 @@ small {
 
 .logo-carousel-link{
     position: absolute;
-    top: 45%;
-    left: 45%;
+    top: 35%;
+    left: 0%;
 }
 
 .logo-carousel{
-    width: 100%;
+    width: 60%;
+    transition: ease-in-out 0.5s;
+}
+
+.logo-carousel:hover{
+    width: 60%;
+    transform: scale(1.10);
+    transition: ease-in-out 0.5s;
 }
