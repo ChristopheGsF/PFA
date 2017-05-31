@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Perfect Kicks') }}</title>
+    <title>Perfect Kicks</title>
 
     <!-- Styles -->
     <link href='https://fonts.googleapis.com/css?family=Lato'>

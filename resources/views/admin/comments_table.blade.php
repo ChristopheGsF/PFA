@@ -13,7 +13,7 @@
         </tr>
       </thead>
       <tbody>
-        @foreach ($comments as $comment)
+      @foreach ($comments as $comment)
           <tr>
             <td> {{$comment->article->title}} </td>
             <td> {{$comment->content}} </td>
@@ -26,6 +26,7 @@
             </td>
           </tr>
         @endforeach
+
       </tbody>
     </table>
     {{ $comments->links() }}

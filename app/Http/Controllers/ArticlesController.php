@@ -62,7 +62,7 @@ class ArticlesController extends Controller
        }
         $article = new Article;
         $user_id = Auth::user()->id;
-        if (empty(Article::all()))
+        if (!empty(Article::all()))
           $articles = Article::all()->last()->id;
         else
           $articles = 0;

@@ -24,17 +24,26 @@
         </div>
 
         <!-- Text input-->
-
         <div class="form-group{{ $errors->has('brand') ? ' has-error' : '' }}">
-          <label class="col-md-4 control-label">Brand</label>
-          <div class="col-md-4 inputGroupContainer">
-            <input  name="brand" placeholder="Brand" class="form-control" value="{{ old('brand') }}"  type="text">
-            @if ($errors->has('brand'))
-              <span class="help-block">
-                    <strong>{{ $errors->first('brand') }}</strong>
-                </span>
-            @endif
-          </div>
+        <label class="col-md-4 control-label">Brand</label>
+        <div class="col-md-4 inputGroupContainer">
+        <select name="brand">
+        <option>Selectionnez une marque</option>
+        <option value="nike">Nike</option>
+        <option value="adidas">Adidas</option>
+        <option value="jordan">Jordan</option>
+        <option value="puma">Puma</option>
+        <option value="reebok">Reebok</option>
+        <option value="asics">Asics</option>
+        <option value="vans">Vans</option>
+        <option value="lacoste">Lacoste</option>
+        </select>
+        @if ($errors->has('brand'))
+        <span class="help-block">
+        <strong>{{ $errors->first('brand') }}</strong>
+        </span>
+        @endif
+        </div>
         </div>
 
         <!-- Text input-->
@@ -113,13 +122,6 @@
           <label class="col-md-4 control-label">Image</label>
           <div class="col-md-4 inputGroupContainer">
             <input name="image" type="file">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="col-md-4 control-label">Image Brand</label>
-          <div class="col-md-4 inputGroupContainer">
-            <input name="image_brand" type="file">
           </div>
         </div>
 

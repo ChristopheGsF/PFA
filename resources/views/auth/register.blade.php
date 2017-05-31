@@ -42,7 +42,7 @@
 
                 <p>
                     <label for="password-confirm">Confirm Password</label>
-                        <input type="password" name="password_confirmation" id="email" placeholder="Votre email" required>
+                        <input type="password" name="password_confirmation" id="email" placeholder="Votre Password" required>
                 </p>
 
                 <div class="container">

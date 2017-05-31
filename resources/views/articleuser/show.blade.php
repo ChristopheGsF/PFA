@@ -34,12 +34,12 @@
           @endif
         <h2 class="text-header">{{$article->brand}} {{$article->model}}</h2>
           <h2 class="text-release">{{$article->price}} €</h2>
-        </div>
+ </div>
       </div>
       <div class="col-md-4 details_occasion">
         <img src="{{ asset($article->brand_img) }}" class="img-responsive brand_img" alt="img-article" />
         <h4>Marque : {{$article->brand}}</h4>
-        <h4>Modèle : {{$article->model}}</h4>
+        <h4>Modèle : {{$article->model}} - {{$article->release}}</h4>
         <h4>Coloris : {{$article->color}}</h4>
         <h4>Taille : {{$article->size}}</h4>
         <h4>Contacts : <a href="{{route('inboxe.newgroup', ["id" => $article->user->id] )}}" class="list-group-item ">{{$article->user->name}}</a></h4>
