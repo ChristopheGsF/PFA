@@ -17,7 +17,7 @@ class CreateInboxTable extends Migration
         $table->increments('id');
         $table->text('content');
         $table->integer('hash_id')->unsigned();
-        $table->foreign('hash_id')->references('id')->on('inboxe_groups');
+        $table->foreign('hash_id')->references('hash')->on('inboxe_groups');
         $table->integer('user_id')->unsigned();
         $table->foreign('user_id')->references('id')->on('users');
         $table->timestamps();
