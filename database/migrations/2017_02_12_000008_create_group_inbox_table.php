@@ -14,7 +14,7 @@ class CreateGroupInboxTable extends Migration
     public function up()
     {
       Schema::create('inboxe_groups', function (Blueprint $table) {
-        $table->increments('id');
+        $table->integer('hash');
         $table->integer('f_user')->unsigned();
         $table->foreign('f_user')->references('id')->on('users');
         $table->integer('s_user')->unsigned();

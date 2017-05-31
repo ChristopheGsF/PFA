@@ -42,6 +42,7 @@
         <h4>Modèle : {{$article->model}}</h4>
         <h4>Coloris : {{$article->color}}</h4>
         <h4>Taille : {{$article->size}}</h4>
+        <h4>Contacts : <a href="{{route('inboxe.newgroup', ["id" => $article->user->id] )}}" class="list-group-item ">{{$article->user->name}}</a></h4>
         <h3>Description</h3>
         <p class="desc_occasion">{{$article->content}}</p>
       </div>

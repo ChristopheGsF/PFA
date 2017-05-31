@@ -11,6 +11,6 @@ class inboxeGroup extends Model
   ];
   public function users()
   {
-      return $this->belongsToMany('App\User', 's_user_id', 'f_user_id' );
+      return $this->hasMany('App\User');
   }
 }

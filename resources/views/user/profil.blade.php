@@ -138,43 +138,45 @@ $(document).ready(function(){
 </div>
 </section>
 
-
-<section class="section-liked">
+  <section class="section-liked">
     <div class="row">
-        <div class="col-md-12">
-            <h3 class="text-center occasion_text white">LIKES</h3>
-        </div>
-        <a class="plus_link" id="btn-profil-like"><button id="plus" class="btn-plus center-block"><span class="plus glyphicon glyphicon-plus"></span></button>
-        </a>
+      <div class="col-md-12">
+        <h3 class="text-center occasion_text white">LIKES</h3>
+      </div>
+      @if (!empty($likes))
+      <a class="plus_link" id="btn-profil-like"><button id="plus" class="btn-plus center-block"><span class="plus glyphicon glyphicon-plus"></span></button>
+      </a>
+    @endif
     </div>
     <div id="profil_likes">
-        <div class="container">
-            <div class="row">
-                @foreach ($likes as $like)
-                    @foreach ($posts as $post)
-                        @if( $like->article_id == $post->id)
+      <div class="container">
+        <div class="row">
+          @foreach ($likes as $like)
+            @foreach ($posts as $post)
+              @if( $like->article_id == $post->id)
                 <div class="col-md-4">
-
-                        <a href="{{ route('articles.show', ['id' => $post->id]) }}"><img src="{{$post->img}}" class="img-responsive" alt="img-article"></a>
-                        <h2 class="article-liked text-center">{{$post->title}}</h2>
-                        <p class="text-center" style="color: #fff;"> <span class="glyphicon glyphicon-time"></span> {{$post->release}}</p>
+                  <a href="{{ route('articles.show', ['id' => $post->id]) }}"><img src="{{$post->img}}" class="img-responsive" alt="img-article"></a>
+                  <h2 class="article-liked text-center">{{$post->title}}</h2>
+                  <p class="text-center" style="color: #fff;"> <span class="glyphicon glyphicon-time"></span> {{$post->release}}</p>
 
                 </div>
-                        @endif
-                    @endforeach
-                @endforeach
-            </div>
+              @endif
+            @endforeach
+          @endforeach
         </div>
+      </div>
     </div>
-</section>
+  </section>
 
 <section class="section-annonces">
     <div class="row">
         <div class="col-md-12">
             <h3 class="text-center occasion_text white">Mes Annonces</h3>
         </div>
-        <a class="plus_link" id="btn-profil-annonces"><button  class="btn-plus center-block"><span class="plus glyphicon glyphicon-plus"></span></button>
-        </a>
+        @if (!empty($articles))
+          <a class="plus_link" id="btn-profil-annonces"><button  class="btn-plus center-block"><span class="plus glyphicon glyphicon-plus"></span></button>
+          </a>
+        @endif
     </div>
     <div id="profil_annonces">
         <div class="container">
@@ -196,7 +198,7 @@ $(document).ready(function(){
             @foreach ($articles as $article)
         <div class="row">
             <div class="col-md-3">
-                <a href="{{ route('articles.index') }}/{{$article->id}}/show"><img src="{{$article->img}}" class="img-responsive img-thumbnail center-block" alt="img-article"></a>
+                <a href="{{ route('articleuser.index') }}/{{$article->id}}/show"><img src="{{$article->img}}" class="img-responsive img-thumbnail center-block" alt="img-article"></a>
             </div>
             <div class="col-md-2">
 

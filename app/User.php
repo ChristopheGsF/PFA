@@ -44,6 +44,11 @@ class User extends Authenticatable
         return $this->hasMany('App\Comment');
     }
 
+    public function inboxe()
+    {
+        return $this->hasMany('App\Inbox');
+    }
+
     public function inboxesGroup()
     {
          return $this->belongsToMany('App\inboxeGroup');
