@@ -14,10 +14,92 @@
       <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
         <label class="col-md-4 control-label">Title</label>
         <div class="col-md-4 inputGroupContainer">
-          <input  name="title" placeholder="{{$article->title}}" class="form-control"  type="text" value="{{$article->title}}">
+          <input  name="title" placeholder="Title" class="form-control" value="{{ $article->title }}"  type="text">
           @if ($errors->has('title'))
-              <span class="help-block">
-                  <strong>{{ $errors->first('title') }}</strong>
+            <span class="help-block">
+              <strong>{{ $errors->first('title') }}</strong>
+            </span>
+          @endif
+        </div>
+      </div>
+
+      <!-- Text input-->
+
+      <div class="form-group{{ $errors->has('brand') ? ' has-error' : '' }}">
+        <label class="col-md-4 control-label">Brand</label>
+        <div class="col-md-4 inputGroupContainer">
+          <select name="brand">
+            <option>{{$article->brand}}</option>
+            <option value="nike">Nike</option>
+            <option value="adidas">Adidas</option>
+            <option value="jordan">Jordan</option>
+            <option value="puma">Puma</option>
+            <option value="reebok">Reebok</option>
+            <option value="asics">Asics</option>
+            <option value="vans">Vans</option>
+            <option value="lacoste">Lacoste</option>
+          </select>
+          @if ($errors->has('brand'))
+            <span class="help-block">
+                  <strong>{{ $errors->first('brand') }}</strong>
+              </span>
+          @endif
+        </div>
+      </div>
+
+
+      <!-- Text input-->
+
+      <div class="form-group{{ $errors->has('model') ? ' has-error' : '' }}">
+        <label class="col-md-4 control-label">Model</label>
+        <div class="col-md-4 inputGroupContainer">
+          <input  name="model" placeholder="Model" class="form-control" value="{{ $article->model }}"  type="text">
+          @if ($errors->has('model'))
+            <span class="help-block">
+                  <strong>{{ $errors->first('model') }}</strong>
+              </span>
+          @endif
+        </div>
+      </div>
+
+
+      <!-- Text input-->
+
+      <div class="form-group{{ $errors->has('price') ? ' has-error' : '' }}">
+        <label class="col-md-4 control-label">Price</label>
+        <div class="col-md-4 inputGroupContainer">
+          <input  name="price" placeholder="Price" class="form-control" value="{{ $article->price }}"  type="text">
+          @if ($errors->has('price'))
+            <span class="help-block">
+                  <strong>{{ $errors->first('price') }}</strong>
+              </span>
+          @endif
+        </div>
+      </div>
+
+      <!-- Text input-->
+
+      <div class="form-group{{ $errors->has('color') ? ' has-error' : '' }}">
+        <label class="col-md-4 control-label">Color</label>
+        <div class="col-md-4 inputGroupContainer">
+          <input  name="color" placeholder="Color" class="form-control" value="{{ $article->color }}"  type="text">
+          @if ($errors->has('color'))
+            <span class="help-block">
+                  <strong>{{ $errors->first('color') }}</strong>
+              </span>
+          @endif
+        </div>
+      </div>
+
+      <!-- Text input-->
+
+      <div class="form-group{{ $errors->has('release') ? ' has-error' : '' }}">
+        <label class="col-md-4 control-label">Release</label>
+        <div class="col-md-4 inputGroupContainer">
+          <input  name="release" placeholder="Release" class="form-control" value="{{ $article->release }}"  type="text">
+          @if ($errors->has('release'))
+            <span class="help-block">
+                  <strong>{{ $errors->first('release') }}</strong>
               </span>
           @endif
         </div>
@@ -28,7 +110,7 @@
       <div class="form-group{{ $errors->has('content') ? ' has-error' : '' }}">
         <label class="col-md-4 control-label">Content</label>
         <div class="col-md-4 inputGroupContainer">
-          <textarea class="form-control" name="content" placeholder="Content">{{$article->content}}</textarea>
+          <textarea class="form-control" name="content" placeholder="Content">{{ $article->content }}</textarea>
           @if ($errors->has('content'))
               <span class="help-block">
                   <strong>{{ $errors->first('content') }}</strong>

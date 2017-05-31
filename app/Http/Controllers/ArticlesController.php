@@ -60,17 +60,6 @@ class ArticlesController extends Controller
                        ->withErrors($validator)
                        ->withInput();
        }
-        if (Input::hasFile('image_brand') && (strpos("jpgpng", $request->file('image_brand')->getClientOriginalExtension()) === false)) {
-            $request->session()->flash('alert-danger', 'Image Brand bad extension ! (only jpg or png)');
-            return redirect('articles/create')
-                ->withErrors($validator)
-                ->withInput();
-        }
-        elseif ($validator->fails()) {
-            return redirect('articles/create')
-                ->withErrors($validator)
-                ->withInput();
-        }
         $article = new Article;
         $user_id = Auth::user()->id;
         if (empty(Article::all()))
@@ -86,14 +75,6 @@ class ArticlesController extends Controller
           );
           $article->img = '/images/catalog/'. $imageName;
         }
-        if (Input::hasFile('image_brand')) {
-            $imageName = 'Article_image_brand_'. $articles .'_utilisateur_numero_' . $user_id . '.' .
-                $request->file('image_brand')->getClientOriginalExtension();
-            $requete_nom_image = $request->file('image_brand')->move(
-                base_path() . '/public/images/catalog/', $imageName
-            );
-            $article->brand_img = '/images/catalog/'. $imageName;
-        }
         $article->title = $request->title;
         $article->content = $request->content;
         $article->brand = $request->brand;
@@ -102,6 +83,8 @@ class ArticlesController extends Controller
         $article->price = $request->price;
         $article->color = $request->color;
         $article->brand = $request->brand;
+        $article->brand_img = '/images/brand/'. $request->brand .'.png';
+
         $article->user_id =  Auth::user()->id;
         $article->save();
         $request->session()->flash('alert-success', 'Article was successful created!');
@@ -160,6 +143,11 @@ class ArticlesController extends Controller
       $validator = Validator::make($request->all(), [
          'title' => 'required',
          'content' => 'required',
+         'brand' => 'required',
+         'model' => 'required',
+         'price' => 'required|regex:/[0-9]/',
+         'color' => 'required',
+         'release' => 'required',
      ]);
      if (Input::hasFile('image') && (strpos("jpgpng", $request->file('image')->getClientOriginalExtension()) === false)) {
          $request->session()->flash('alert-danger', 'Image bad extension ! (only jpg or png)');
@@ -174,6 +162,11 @@ class ArticlesController extends Controller
      }
       $user_id = Auth::user()->id;
       $article->title = $request->title;
+      $article->brand = $request->brand;
+      $article->model = $request->model;
+      $article->price = $request->price;
+      $article->color = $request->color;
+      $article->release = $request->release;
       $article->content = $request->content;
       if (Input::hasFile('image')) {
           $imageName = 'Article_image_'. $article->id .'_utilisateur_numero_' . $user_id . '.' .
@@ -181,6 +174,7 @@ class ArticlesController extends Controller
           $requete_nom_image = $request->file('image')->move(base_path() . '/public/images/catalog/', $imageName);
           $article->img = '/images/catalog/'. $imageName;
       }
+      $article->brand_img = '/images/brand/'. $request->brand .'.png';
       $article->save();
       $request->session()->flash('alert-success', 'Article was successful edited!');
       return redirect('/articles');
