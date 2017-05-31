@@ -27,7 +27,7 @@
     });
 </script>
 <div class="container-carousel">
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">
         <!-- Carousel indicators -->
         <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -40,13 +40,14 @@
 
             <div class="item active">
                 <img class="img-responsive" src="{{URL::asset('/images/carousel1.jpg')}}" alt="First Slide">
+                <a class="logo-carousel-link" href="{{ url('/') }}"><img class="logo-carousel center-block" src="{{URL::asset('/images/logo.png')}}">
+                </a>
             </div>
 
             @foreach ($articles as $article)
             <div class="item">
                 <a href="{{ route('articles.show', ['id' => $article->id]) }}"><img src="{{$article->img}}" class="img-responsive" alt="img-article"></a>
-                <h2 class="caption-title">{{$article->title}}</h2>
-                <h2 class="caption-release">{{$article->release}}</h2>
+                <h2 class="caption-title"><strong>{{$article->title}}</strong>  <br> {{$article->release}}</h2>
             </div>
             @endforeach
         </div>
@@ -86,7 +87,7 @@
                                 @if ($like->user_id == Auth::user()->id && $like->article_id == $article->id)
                                     <form action='{{ route('articles.delete_like', ['id' => $like->id]) }}' method="post">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                        <button type="submit" class="btn btn-danger"> Dislike </button>
+                                        <button type="submit" class="btn btn-dislike"><i class="fa fa-thumbs-down icon-like"></i></button>
                                     </form>
                                 @endif
                                 @endforeach
@@ -139,9 +140,10 @@
             </div>
                 @endforeach
 
-             <a class="plus_link" href="{{ route('articles.index')}}"><button  class="btn-plus center-block"><span class="plus glyphicon glyphicon-plus"></span>
-             </a>
+
 
         </div>
+        <a class="plus_link" href="{{ route('articles.index')}}"><button  class="btn-plus center-block"><span class="plus glyphicon glyphicon-plus"></span>
+        </a>
     </div>
 @endsection

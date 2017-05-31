@@ -4,6 +4,9 @@
   <div class="panel panel-default articles">
     <div class="panel-heading">Articles</div>
     <div class="panel-body">
+      <div class="list-group select-menu rotate">
+        <a href="{{ route('articles.create')}}" class="list-group-item"> Create </a>
+      </div>
     <table class="table table-hover">
       <thead>
         <tr>

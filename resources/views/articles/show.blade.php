@@ -27,8 +27,7 @@
           @if($article->img)
             <img src="{{ asset($article->img) }}" class="img-responsive" alt="img-article" />
           @endif
-        <h2 class="text-header">{{$article->title}}</h2>
-          <h2 class="text-release">{{$article->release}}</h2>
+        <h2 class="caption-title"><strong>{{$article->title}}</strong>  <br> {{$article->release}}</h2>
         </div>
       </div>
     </div>

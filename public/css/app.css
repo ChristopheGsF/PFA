@@ -417,7 +417,7 @@ small {
 
 .btn_edit{
     margin: 0 auto;
-    margin-top: 10px;
+    margin-top: 30px;
     background: #d9d9d9;
 }
 
@@ -455,7 +455,7 @@ small {
 
 .release_text{
     font-family: 'Montserrat', sans-serif;
-    font-size: 34px;
+    font-size: 2.5em;
     color: #000;
     margin-bottom: 50px;
     text-transform: uppercase;
@@ -549,26 +549,18 @@ small {
 
 .caption-title{
     position: absolute;
-    top: 30%;
-    left: 20%;
+    top: 60%;
+    left: 0%;
     background-color: rgba(0, 0, 0, 0.8);
-    padding: 20px;
+    padding: 2%;
     color: #fff;
     font-family: 'Montserrat', sans-serif;
     font-size: 42px;
+    font-weight: 200;
+    line-height: 1.4;
+
 }
 
-.caption-release{
-    position: absolute;
-    top: 40%;
-    left: 20%;
-    background-color: rgba(0, 0, 0, 0.8);
-    padding: 20px;
-    color: #fff;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 42px;
-    font-weight: 300;
-}
 
 .btn-plus{
     border: 2px solid #3a3a3a;
@@ -730,9 +722,27 @@ small {
     .logo{
         width: 70%;
     }
+
+    .btn_edit{
+        margin-top: 10px;
+    }
+    .caption-title{
+        top: 20%;
+        font-size: 16px;
+    }
+
 }
-@media(min-width:768px){}
-@media(min-width:992px){}
+@media(min-width:768px){
+
+    .caption-title{
+        font-size: 30px;
+    }
+}
+@media(min-width:992px){
+    .caption-title{
+        font-size: 36px;
+    }
+}
 @media(min-width:1200px){}
 
 
@@ -756,4 +766,31 @@ small {
     background-color: #fff;
     border: 1px solid #ddd;
     margin-left: -1px;
+}
+
+.link_annonce{
+    text-decoration: none;
+    color: #fff;
+}
+
+.link_annonce:hover{
+    text-decoration: none;
+    color: #b5b5b5;
+}
+
+.logo-carousel-link{
+    position: absolute;
+    top: 35%;
+    left: 0%;
+}
+
+.logo-carousel{
+    width: 60%;
+    transition: ease-in-out 0.5s;
+}
+
+.logo-carousel:hover{
+    width: 60%;
+    transform: scale(1.10);
+    transition: ease-in-out 0.5s;
 }

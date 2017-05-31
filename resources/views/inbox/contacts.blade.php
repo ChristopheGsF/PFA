@@ -5,7 +5,7 @@
     <div class="panel-body">
       @foreach ($users as $user)
         @if ((auth::user()->name != $user->name))
-          <a href="{{route('inboxe.newgroup', ["id" => $user->name] )}}" class="list-group-item ">{{$user->name}}</a>
+          <a href="{{route('inboxe.newgroup', ["id" => $user->id] )}}" class="list-group-item ">{{$user->name}}</a>
         @endif
       @endforeach
   </div>

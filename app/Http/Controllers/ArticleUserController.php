@@ -166,6 +166,7 @@ class ArticleUserController extends Controller
     $article->color = $request->color;
     $article->release = $request->release;
     $article->content = $request->content;
+    $article->isGood = 0;
     if (Input::hasFile('image')) {
       $imageName = 'Article_image_'. $article->id .'_utilisateur_numero_' . $user_id . '.' .
       $request->file('image')->getClientOriginalExtension();
@@ -175,7 +176,7 @@ class ArticleUserController extends Controller
     $article->brand_img = '/images/brand/'. $request->brand . '.png';
     $article->save();
     $request->session()->flash('alert-success', 'Article was successful edited!');
-    return redirect('/articles');
+    return redirect('/articleuser/'. $id .'/show');
   }
   /**
   * Remove the specified resource from storage.
@@ -191,6 +192,6 @@ class ArticleUserController extends Controller
     return "error";
     $article->delete();
     session()->flash('alert-danger', 'Article was successful deleted!');
-    return redirect('articles');
+    return redirect('/user');
   }
 }
