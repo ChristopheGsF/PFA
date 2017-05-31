@@ -143,10 +143,8 @@ $(document).ready(function(){
       <div class="col-md-12">
         <h3 class="text-center occasion_text white">LIKES</h3>
       </div>
-      @if (!empty($likes))
       <a class="plus_link" id="btn-profil-like"><button id="plus" class="btn-plus center-block"><span class="plus glyphicon glyphicon-plus"></span></button>
       </a>
-    @endif
     </div>
     <div id="profil_likes">
       <div class="container">
@@ -173,10 +171,8 @@ $(document).ready(function(){
         <div class="col-md-12">
             <h3 class="text-center occasion_text white">Mes Annonces</h3>
         </div>
-        @if (!empty($articles))
           <a class="plus_link" id="btn-profil-annonces"><button  class="btn-plus center-block"><span class="plus glyphicon glyphicon-plus"></span></button>
           </a>
-        @endif
     </div>
     <div id="profil_annonces">
         <div class="container">
